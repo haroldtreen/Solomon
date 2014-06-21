@@ -27,7 +27,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    api_doc_viewer (0.1.0)
+      rails (~> 4.0)
     arel (5.0.1.20140414130214)
+    awesome_print (1.2.0)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -148,13 +151,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  api_doc_viewer (~> 0.1.0)
+  awesome_print
   coffee-rails (~> 4.0.0)
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
   pg
   rails (= 4.1.1)
-  rspec-rails (~> 2.0)
+  rspec-rails (~> 2.14)
   rspec_api_documentation
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

@@ -7,6 +7,9 @@ gem 'rails', '4.1.1'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+
+gem 'awesome_print'
+gem 'api_doc_viewer', '~> 0.1.0' # UI for test-generated documentation
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -46,5 +49,5 @@ group :development, :test do
   gem 'rspec_api_documentation'
 	# gem 'guard-rspec', '~> 4.2.6', require: false # Watches for file changes and runs the specs
 	gem 'factory_girl_rails'
-	gem 'rspec-rails', '~> 2.0'
+	gem 'rspec-rails', '~> 2.14'
 end
