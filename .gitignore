@@ -15,7 +15,7 @@
 /log/*.log
 /tmp
 
-database.yml
+config/database.yml
 
 #ignore front-end stuff
 public/.sass-cache
