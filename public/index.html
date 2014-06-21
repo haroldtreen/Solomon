@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Soloman</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <section class="home">
+    <div class="wrapper">
+      <h1>Solomon</h1>
+      <form action="" class="findFight" id="findFight">
+        <label for="find">Find a Dispute</label>
+        <input type="text" name="find">
+        <button type="submit">Find</button>
+      </form>
+      <form action="" class="makeFight" id="makeFight">
+        <label for="make">Create a Dispute</label>
+        <input type="text" name="make">
+        <button type="submit">Start Fighting</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="create">
+    <div class="wrapper">
+      <h2>Create List</h2>
+      <ol>
+        <li>First Item Dummy</li>
+      </ol>
+      <form id="createList">
+        <label for="itemName">Add Item</label>
+        <input type="text" name="item">
+        <button type="default" id="addItem">Add Item</button>
+        <button type="submit" id="finalizeList">Finalize List</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="order">
+    <div class="wrapper">
+      <h2>Reorder Items</h2>
+      <form action="" id="reOrderList">
+        <label for="name">Your Name</label>
+        <input type="text" name="name">
+        <div class="list">
+          <div id="item1"></div>
+          <div id="item2"></div>
+          <div id="item3"></div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="wrapper">
+      <h2>Results</h2>
+      <div class="half">
+        <h3>Person1</h3>
+        <div id="sortedItem1"></div>
+        <div id="sortedItem2"></div>
+        <div id="sortedItem3"></div>
+      </div>
+      <div class="half">
+        <h3>Asshole2</h3>
+        <div id="sortedItem4"></div>
+        <div id="sortedItem5"></div>
+        <div id="sortedItem6"></div>
+      </div>
+      <div class="clearfix">
+        <h3>Contested Items</h3>
+        <div id="sortedItem7"></div>
+        <div id="sortedItem8"></div>
+        <div id="sortedItem9"></div>
+      </div>
+    </div> 
+  </section>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

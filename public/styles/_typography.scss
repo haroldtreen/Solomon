@@ -1,0 +1,17 @@
+body {
+  @include sanslt;
+}
+
+h1 {
+  @include sanslt;
+}
+
+h2 {
+  @include sanslt;
+  text-transform: uppercase;
+}
+
+h3 {
+  @include sanslt;
+  text-transform: uppercase;
+}
