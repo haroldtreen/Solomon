@@ -45,6 +45,10 @@ group :development do
   gem 'zeus' # Preloads the Rails environment in memory
 end
 
+group :test do
+	gem 'database_cleaner'
+end
+
 group :development, :test do
   gem 'rspec_api_documentation'
 	# gem 'guard-rspec', '~> 4.2.6', require: false # Watches for file changes and runs the specs

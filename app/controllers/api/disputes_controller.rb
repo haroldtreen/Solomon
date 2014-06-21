@@ -4,6 +4,11 @@ class Api::DisputesController < ApiController
 		@dispute = Dispute.find(params[:id])
 	end
 
+	def find_by_name
+		@dispute = Dispute.find_by!(name: params[:name].downcase)
+		render :show
+	end
+
 	def create
 		@dispute = Dispute.create(dispute_params)
 		render :show, status: :created, location: api_dispute_path(@dispute)
