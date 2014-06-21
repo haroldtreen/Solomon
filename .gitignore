@@ -21,4 +21,6 @@ config/database.yml
 /public/.sass-cache
 /public/node_modules
 
+
 /doc
+
