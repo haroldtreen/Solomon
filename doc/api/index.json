@@ -1,0 +1,14 @@
+{
+  "resources": [
+    {
+      "name": "Dispute",
+      "examples": [
+        {
+          "description": "Listing disputes",
+          "link": "dispute/listing_disputes.json",
+          "groups": "all"
+        }
+      ]
+    }
+  ]
+}
