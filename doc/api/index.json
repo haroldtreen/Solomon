@@ -4,8 +4,23 @@
       "name": "Dispute",
       "examples": [
         {
-          "description": "Listing disputes",
-          "link": "dispute/listing_disputes.json",
+          "description": "Creating a dispute",
+          "link": "dispute/creating_a_dispute.json",
+          "groups": "all"
+        },
+        {
+          "description": "Get a dispute by name",
+          "link": "dispute/get_a_dispute_by_name.json",
+          "groups": "all"
+        },
+        {
+          "description": "Show a Dispute",
+          "link": "dispute/show_a_dispute.json",
+          "groups": "all"
+        },
+        {
+          "description": "Update a Dispute",
+          "link": "dispute/update_a_dispute.json",
           "groups": "all"
         }
       ]

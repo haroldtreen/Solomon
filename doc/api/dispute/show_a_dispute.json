@@ -2,7 +2,7 @@
   "resource": "Dispute",
   "http_method": "GET",
   "route": "/api/disputes/:id",
-  "description": "Listing disputes",
+  "description": "Show a Dispute",
   "explanation": null,
   "parameters": [
 
@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/api/disputes/26",
+      "request_path": "/api/disputes/91",
       "request_body": null,
       "request_headers": {
         "Host": "example.org",
@@ -21,17 +21,17 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"dispute\":{\"id\":26,\"name\":\"Name 867\",\"items\":[\"cat\",\"hat\",\"mat\"],\"status\":\"started\"}}",
+      "response_body": "{\"dispute\":{\"id\":91,\"name\":\"Name 568\",\"items\":[\"cat\",\"hat\",\"mat\"],\"status\":\"started\"}}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "\"2bd97710f44b4fc7a6cafcb25313e40b\"",
+        "ETag": "\"9e89aabfc35feedff307812d768eae05\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
         "Set-Cookie": "request_method=GET; path=/",
-        "X-Request-Id": "67cff277-30f0-4fe4-bbc4-958d2a8cc769",
-        "X-Runtime": "0.026044",
+        "X-Request-Id": "9a72cb2e-82d3-424f-8ea4-cff36348dc85",
+        "X-Runtime": "0.002705",
         "Content-Length": "86"
       },
       "response_content_type": "application/json; charset=utf-8",

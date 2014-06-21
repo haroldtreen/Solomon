@@ -1,0 +1,42 @@
+{
+  "resource": "Dispute",
+  "http_method": "PATCH",
+  "route": "/api/disputes/:id",
+  "description": "Update a Dispute",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/api/disputes/91",
+      "request_body": "dispute[name]=Name+656&dispute[items][]=cat&dispute[items][]=hat&dispute[items][]=mat&dispute[status]=started",
+      "request_headers": {
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 202,
+      "response_status_text": "Accepted",
+      "response_body": "{\"dispute\":{\"id\":91,\"name\":\"Name 656\",\"items\":[\"cat\",\"hat\",\"mat\"],\"status\":\"started\"}}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Location": "/api/disputes/91",
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-cache",
+        "Set-Cookie": "request_method=PATCH; path=/",
+        "X-Request-Id": "acbb7e4a-e5df-44cd-9b8f-5229061a9b34",
+        "X-Runtime": "0.035504",
+        "Content-Length": "86"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
