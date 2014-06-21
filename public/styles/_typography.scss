@@ -8,8 +8,10 @@ h1 {
 
 h2 {
   @include sanslt;
+  text-transform: uppercase;
 }
 
 h3 {
-  @include sanslt; 
+  @include sanslt;
+  text-transform: uppercase;
 }
