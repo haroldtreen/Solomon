@@ -1,3 +1,4 @@
 json.dispute do
-	json.(@dispute, :id, :name, :items, :status)
+	json.(@dispute, :id, :items, :status)
+	json.name @dispute.name.titleize
 end

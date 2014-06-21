@@ -3,31 +3,40 @@ require 'rspec_api_documentation/dsl'
 
 resource "Dispute" do
   
-  SHOW_ATTRIBUTES = ['status', 'name', 'items']
+  SHOW_ATTRIBUTES = ['status', 'items']
 
   before(:all) do 
     @dispute = create(:dispute)
-
   end
+
+  before(:each) { @dispute.reload }
 
   get "/api/disputes/:id" do
   	let(:id) { @dispute.id }
 
     example "Show a Dispute" do
-      @dispute.reload
-
       do_request
 
-      response = json_response['dispute']
-
       expect(status).to eq(200)
-      expect_response_matches_resource(response, @dispute, SHOW_ATTRIBUTES)
+      expect(json_response['dispute']['name']).to eq(@dispute.name.titleize)
+      expect_response_matches_resource(json_response['dispute'], @dispute, SHOW_ATTRIBUTES)
     end
   end
 
   get "/api/disputes" do
     example "Get a dispute by name" do
+      do_request(name: @dispute.name)
 
+      expect(status).to eq(200)
+      expect(json_response['dispute']['name']).to eq(@dispute.name.titleize)
+      expect_response_matches_resource(json_response['dispute'], @dispute, SHOW_ATTRIBUTES)
+    end
+
+    example "Error: No dispute exists", document: false do
+      do_request(name: @dispute.name + " fake")
+
+      expect(status).to eq(404)
+      expect(json_response['message']).to eq("Not Found!")
     end
   end
 
@@ -39,12 +48,9 @@ resource "Dispute" do
         do_request(dispute: dispute)
       }.to change{ Dispute.count }
 
-      response = json_response['dispute']
-
       expect(status).to be(201)
-      expect(response['status']).to eq(dispute[:status])
-      expect(response['name']).to eq(dispute[:name])
-      expect(response['items']).to eq(dispute[:items])
+      expect(json_response['dispute']['name']).to eq(dispute[:name].titleize)
+      expect_response_matches_resource(json_response['dispute'], dispute, SHOW_ATTRIBUTES)
     end
   end
 
@@ -56,12 +62,9 @@ resource "Dispute" do
 
       do_request(dispute: dispute)
 
-      response = json_response['dispute']
-
       expect(status).to be(202)
-      expect(response['status']).to eq(dispute[:status])
-      expect(response['name']).to eq(dispute[:name])
-      expect(response['items']).to eq(dispute[:items])
+      expect(json_response['dispute']['name']).to eq(dispute[:name].titleize)
+      expect_response_matches_resource(json_response['dispute'], dispute, SHOW_ATTRIBUTES)
     end
   end
 end

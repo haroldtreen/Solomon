@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   mount ApiDocViewer::Engine, at: '/apidocs'
 
   namespace :api, defaults: { format: :json } do
-    resources :disputes, only: [:show, :create, :update]
+    resources :disputes, only: [:show, :create, :update] do
+      collection do
+        get :find_by_name, path: '/'
+      end
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
