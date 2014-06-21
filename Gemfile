@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,3 +38,13 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem 'zeus' # Preloads the Rails environment in memory
+end
+
+group :development, :test do
+  gem 'rspec_api_documentation'
+	# gem 'guard-rspec', '~> 4.2.6', require: false # Watches for file changes and runs the specs
+	gem 'factory_girl_rails'
+	gem 'rspec-rails', '~> 2.0'
+end
