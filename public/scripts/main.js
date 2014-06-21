@@ -1,5 +1,6 @@
 var app = {
   init: function() {
+    app.list = [];
 
     //find a dispute
     $('#findFight').submit(function(event) {
@@ -13,10 +14,14 @@ var app = {
       console.log("Make fight works");
     });
 
+    
     //add Item to the list
     $('#addItem').click(function(event) {
       event.preventDefault();
-      console.log("create list item works");
+      var item = $("input[name=item]").val();
+      app.list.push(item);
+      document.getElementById("createList").reset();
+      $(".create ul").append("<li>"+item+"</li>");
     });
 
     //submit the list
@@ -28,11 +33,11 @@ var app = {
     $('#reOrderList').submit(function(event) {
       event.preventDefault();
       console.log("this shit works too");
-    })
+    });
 
 
   }
-}//app
+};//app
 
 $(document).ready(function(){
 
