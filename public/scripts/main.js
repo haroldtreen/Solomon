@@ -56,22 +56,25 @@ var app = {
   //Hide HTML Section and display corresponding view based on Status  
   switchView : function(data){
 
+    //know which view to hide
     var oldView = app.view;
 
-    if (data.dispute.results !== null){
+    console.log(data);
+    if (app.view === "results"){
+      //dirty fix
+    }
+    else if ( data.dispute.results !== null){
       app.view = "results";
     }
     else {
       //switch to new view (status)
       app.view = data.dispute.status;
+
+      //Needed for Create Method
+      app.currentId = data.dispute.id;
+      app.currentName = data.dispute.name;
     }
 
-
-    app.currentId = data.dispute.id;
-    app.currentName = data.dispute.name;
-
-
-  
     $('.'+app.view).show();
 
     //hide currentView
