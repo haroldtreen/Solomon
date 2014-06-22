@@ -3,6 +3,7 @@ var app = {
   //initialize the app with event listeners 
   init: function() {
 
+  
     //initialize program with all views hidden except HOME
     $( "section" ).not( "[class='home']" ).hide();
 
@@ -45,6 +46,11 @@ var app = {
     $('#reOrderList').submit(function(event) {
       event.preventDefault();
     });
+
+    //ORDER
+    //enable sortable
+    $( "#sortable" ).sortable();  
+    $( "#sortable" ).disableSelection();
 
   },//app.init
 
