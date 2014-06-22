@@ -50,8 +50,33 @@ var app = {
       $("ul.list li").each(function(i){
         sortedList.push($(this).text());
       });
-      console.log(sortedList);
-      console.log("this shit works too");
+
+      var newUser = {
+        user: {
+          name: "app.currentName",
+          items: sortedList,
+          dispute_id: app.currentId
+        }
+      };
+
+      $.ajax({
+        type: "POST",
+        url: "http://0.0.0.0:3000/api/users",
+        data: newUser,
+        dataType: "json",
+        success: function(data) {
+          app.switchView(data);
+          console.log(data);
+          alert("2nd person");
+          //move onto order section
+        },
+        error: function(data) {
+          alert("get your ex to fill out page");
+          //transfer you to another page here
+          // .. . 
+        }
+
+      });//ajax
 
     });//reOrderList
 
@@ -61,8 +86,6 @@ var app = {
     $( "#sortable" ).disableSelection();
 
   },//app.init
-
-
 
 
   //Switch View in the application
@@ -82,6 +105,10 @@ var app = {
 
     //hide currentView
     $('.'+oldView).hide();
+
+    if (app.view == "order") {
+      app.orderInit(data);
+    }
 
   },//app.switchView
 
@@ -109,26 +136,6 @@ var app = {
     }
   },//app.find 
 
-  
-  switchView : function(data){
-
-    app.currentId = data.dispute.id;
-    app.currentName = data.dispute.name;
-
-    var oldView = app.view;
-
-    //switch to new view (status)
-    app.view = data.dispute.status;
-  
-    $('.'+app.view).show();
-
-    //hide currentView
-    $('.'+oldView).hide();
-    
-    if (app.view == "order") {
-      app.orderInit(data);
-    };
-  },
 
   /**********************************************\
   *                   NOT DONE
@@ -164,7 +171,7 @@ var app = {
 
       }
     });//ajax
-  },
+  },//app.createDispute
 
 
   //CREATE
@@ -194,15 +201,19 @@ var app = {
         //move onto order section
       }
     });//ajax
-  },
+  },//app.finalizeList
 
+
+  //ORDER
   orderInit : function(data){
     var items = data.dispute.items;
     for (var i = 0; i < items.length; i++) {
       $( "ul.list" ).append( "<li>"+items[i]+"</li>" );
-    };
-  }
-};//app
+    }
+
+    //iterate through the list and create an array
+  }//app.orderInit
+};
 
 $(document).ready(function(){
 
