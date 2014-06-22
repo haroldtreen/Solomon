@@ -3,4 +3,4 @@ CONSUMER_SECRET = "YzPJFgcx1b5Ufj8sjN8YRUbQtfjmMYEZ0jJgADXzpsQEZdlwr5"
 ACCESS_TOKEN = "2582295840-Oh9b5UiJCCtqndS5Om5vjpX4k8VLsAJYZf3mcDy"
 ACCESS_TOKEN_SECRET = "CYVjtiS56ZILh4uaYP9W87e4hUOvvdagI2tzsm7HEU7Q3"
 
-BASE_URL = "solomonsplits.me/api"
+BASE_URL = "solomonsplits.me"

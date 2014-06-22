@@ -37,6 +37,9 @@ class Api::DisputesController < ApiController
 	end
 
 	def html_results
+		@dispute = Dispute.find(params[:id])
+		@results = @dispute.results
+
 		render file: "public/results.erb"
 	end
 
