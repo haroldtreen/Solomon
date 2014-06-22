@@ -4,14 +4,14 @@ require 'rails/all'
 
 require './lib/SimpleSplit.rb'
 require './lib/complex_split.rb'
+
+# require './lib/HardSplit.rb'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module Solomon
   class Application < Rails::Application
-
-    config.autoload_paths += %W(#{config.root}/lib)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -58,10 +58,15 @@ var home =  {
       url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
       dataType: "json",
       success: function(){
+<<<<<<< Updated upstream
         //error someone has already fuckin made that dispute
         $('.overlay2').fadeIn();
         document.getElementById('createFightInput').text("");
         // $('#createFight').reset();
+=======
+        alert("Dispute with inputted name: " + disputeName  + " already exists");
+        console.log("Dispute with name already exists");
+>>>>>>> Stashed changes
       },
       error: function(){
         $.ajax({

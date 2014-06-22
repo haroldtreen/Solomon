@@ -10,7 +10,7 @@ class Dispute < ActiveRecord::Base
 			user_1 = users.first
 			user_2 = users.last
 
-			splitter = SimpleSplit.new(preferences_a: user_1.items, preferences_b: user_2.items)
+			splitter = ComplexSplit.new(preferences_a: user_1.items, preferences_b: user_2.items)
 			results = splitter.results
 
 			{ 
