@@ -108,6 +108,10 @@ var app = {
       app.currentId = data.dispute.id;
       app.currentName = data.dispute.name;
     }
+    
+
+    $("h1").css("padding-bottom", "60px");
+    $("h2.sub").text(app.currentName);
 
     $('.'+app.view).show();
 

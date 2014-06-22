@@ -15,6 +15,19 @@ $helv: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetic
 $sans: 'Montserrat', sans-serif;
 $smsans: 'Muli', sans-serif;
 
+
+@mixin bp($point) {
+  @if $point == homer {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == marge {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == bart {
+    @media (max-width: 600px)  { @content; }
+  }
+}
+
 @mixin sanslt {
   font-family: $sans;
   font-weight: 300;
@@ -47,4 +60,13 @@ $smsans: 'Muli', sans-serif;
 
 @mixin undoDefault{
   outline: none
+}
+
+@mixin sub {
+  font-size: 1rem;
+  text-transform: none;
+  position: relative;
+  top: -65px;
+  margin-left: 45px;
+  color: $accent2a;
 }

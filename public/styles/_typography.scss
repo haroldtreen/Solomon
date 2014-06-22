@@ -7,7 +7,8 @@ h1 {
   margin: 0;
   background:$black2;
   color:$white;
-  padding: 30px 45px;
+  padding: 35px 45px;
+  transition: padding 0.2s ease;
 }
 
 h2 {
@@ -17,6 +18,10 @@ h2 {
     border-bottom: 1px solid $accent2a;
     padding-bottom: 15px;
   }
+}
+
+h2.sub {
+  @include sub;
 }
 
 h3 {
