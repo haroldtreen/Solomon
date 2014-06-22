@@ -3,7 +3,6 @@ var app = {
     app.list = [];
 
     //enable sortable
-
     $( "#sortable" ).sortable();  
     $( "#sortable" ).disableSelection();
 
@@ -44,11 +43,17 @@ var app = {
 
     $('#reOrderList').submit(function(event) {
       event.preventDefault();
+      var sortedList = [];
+      //loop through ul 
+      $("ul.list li").each(function(i){
+        sortedList.push($(this).text());
+      });
+      console.log(sortedList);
       console.log("this shit works too");
     });
   },//init
 
-  find: function() {
+  find : function() {
     console.log("find fight works");
     //app.disputeName = $("input[name='find']").val().toLowerCase();
     var disputeName = $("input[name='find']").val().toLowerCase();
@@ -89,7 +94,10 @@ var app = {
 
     //hide currentView
     $('.'+oldView).hide();
-
+    
+    if (app.view == "order") {
+      app.orderInit(data);
+    };
   },
 
   createDispute : function() {
@@ -131,14 +139,19 @@ var app = {
       data: editedDispute,
       dataType: "json",
       success: function(data) {
-
         app.switchView(data);
-        //move onto create section
-
+        console.log(data);
+        //move onto order section
       }
     });//ajax
-  }
+  },
 
+  orderInit : function(data){
+    var items = data.dispute.items;
+    for (var i = 0; i < items.length; i++) {
+      $( "ul.list" ).append( "<li>"+items[i]+"</li>" );
+    };
+  }
 };//app
 
 $(document).ready(function(){
