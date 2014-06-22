@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   mount ApiDocViewer::Engine, at: '/apidocs'
 
+  root to: redirect('/index.html')
+
   namespace :api, defaults: { format: :json } do
     resources :disputes, only: [:show, :create, :update] do
       collection do

@@ -196,32 +196,33 @@ var app = {
           dispute_id: app.currentId
         }
       };
+
+      $.ajax({
+        type: "POST",
+        url: "http://0.0.0.0:3000/api/users",
+        data: newUser,
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
+          app.checkUser(data);
+        },
+        error: function(data) {
+          
+          alert("fail");
+          //transfer you to another page here
+          // .. . 
+        }
+
+      });//ajax
     } else {
       alert("not valid name");
     }
 
       //test if the name is filled out
 
-
-    $.ajax({
-      type: "POST",
-      url: "http://0.0.0.0:3000/api/users",
-      data: newUser,
-      dataType: "json",
-      success: function(data) {
-        console.log(data);
-        app.checkUser(data);
-      },
-      error: function(data) {
-        
-        alert("fail");
-        //transfer you to another page here
-        // .. . 
-      }
-
-    });//ajax
   },//app.submitedReOrder
 
+  //ORDER
   checkUser : function(data) {
     $.ajax({
       type: "GET",
@@ -229,6 +230,8 @@ var app = {
       dataType: "json",
       success: function(data) {
         alert("2nd user!");
+        console.log(data);
+
       },
       error: function(data) {
         alert("get your ex to fill out page");

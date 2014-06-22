@@ -4,6 +4,9 @@ require 'rspec_api_documentation/dsl'
 resource "Dispute" do
   before(:all) do 
     @dispute = create(:dispute)
+    @user_1 = create(:user, dispute_id: @dispute.id)
+    @user_2 = create(:user, dispute_id: @dispute.id)
+
     @show_attributes = ['status', 'items']
   end
 
@@ -15,8 +18,12 @@ resource "Dispute" do
     example "Show a Dispute" do
       do_request
 
+      results = json_response['dispute']['results']
+
       expect(status).to eq(200)
       expect(json_response['dispute']['name']).to eq(@dispute.name.titleize)
+      expect(results['name_1']).to eq(@user_1.name)
+      expect(results['contested']).to eq(@user_1.items) 
       expect_response_matches_resource(json_response['dispute'], @dispute, @show_attributes)
     end
   end
@@ -42,16 +49,15 @@ resource "Dispute" do
     let(:id) { @dispute.id }
 
     example "Getting a disputes results" do
-      create(:user, dispute_id: @dispute.id)
-      create(:user, dispute_id: @dispute.id)
-
       do_request
 
-      response_items = json_response['results']['user_1'] +
-                       json_response['results']['user_2'] +
+      response_items = json_response['results']['items_1'] +
+                       json_response['results']['items_2'] +
                        json_response['results']['contested']
 
       expect(status).to eq(200)
+      expect(json_response['results']['name_1']).to eq(@user_1.name)
+      expect(json_response['results']['name_2']).to eq(@user_2.name)
       expect(response_items.sort).to eq(@dispute.items.sort)
     end
 
