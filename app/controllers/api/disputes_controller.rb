@@ -28,22 +28,9 @@ class Api::DisputesController < ApiController
 
 	def results
 		@dispute = Dispute.find(params[:id])
-		users = User.where(dispute_id: @dispute.id).limit(2)
 
-		if users.count >= 2
-			user_1 = users.first
-			user_2 = users.last
-
-			splitter = SimpleSplit.new(preferences_a: user_1.items, preferences_b: user_2.items)
-			results = splitter.results
-
-			response = {}
-			response[:results] = { 
-														 user_1: results[:preferences_a], name_1: user_1.name,
-														 user_2: results[:preferences_a], name_2: user_2.name, 
-														 contested: results[:contested] 
-													 }
-			render json: response, status: :ok
+		if results = @dispute.results
+			render json: { results: results }, status: :ok
 		else
 			render json: { message: "Incomplete Dispute" }, status: :unprocessable_entity
 		end
@@ -53,5 +40,12 @@ class Api::DisputesController < ApiController
 
 	def dispute_params
 		params.require(:dispute).permit(:name, { items: [] }, :status)
+	end
+
+	def compute_results(users)
+		user_1 = users.first
+		user_2 = users.last
+
+
 	end
 end
