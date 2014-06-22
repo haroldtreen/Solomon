@@ -7,7 +7,7 @@ resource "Dispute" do
     @user_1 = create(:user, dispute_id: @dispute.id)
     @user_2 = create(:user, dispute_id: @dispute.id)
 
-    @show_attributes = ['status', 'items']
+    @show_attributes = ['items']
   end
 
   before(:each) { @dispute.reload }
@@ -24,6 +24,7 @@ resource "Dispute" do
       expect(json_response['dispute']['name']).to eq(@dispute.name.titleize)
       expect(results['name_1']).to eq(@user_1.name)
       expect(results['contested']).to eq(@user_1.items) 
+      expect(json_response['dispute']['status']).to eq("finished")
       expect_response_matches_resource(json_response['dispute'], @dispute, @show_attributes)
     end
   end

@@ -36,9 +36,13 @@ class Api::DisputesController < ApiController
 		end
 	end
 
+	def html_results
+		render file: "public/results.erb"
+	end
+
 	private
 
 	def dispute_params
-		params.require(:dispute).permit(:name, { items: [] }, :status)
+		params.require(:dispute).permit(:name, { items: [] })
 	end
 end

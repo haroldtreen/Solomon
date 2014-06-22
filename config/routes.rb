@@ -4,6 +4,12 @@ Rails.application.routes.draw do
 
   root to: redirect('/index.html')
 
+  resources :disputes do
+    member do
+      get :results, to: 'api/disputes#html_results'
+    end
+  end
+
   namespace :api, defaults: { format: :json } do
     resources :disputes, only: [:show, :create, :update] do
       collection do
