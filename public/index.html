@@ -9,16 +9,21 @@
 <body>
   <section class="home">
     <div class="wrapper">
-      <h1>Solomon</h1>
-      <form action="" class="findFight" id="findFight">
-        <label for="find">Find a Dispute</label>
-        <input type="text" name="find">
-        <button type="submit">Find</button>
-      </form>
+      <!-- <h1>Solomon</h1> -->
       <form action="" class="makeFight" id="makeFight">
-        <label for="make">Create a Dispute</label>
-        <input type="text" name="make">
+        <div>
+          <input type="text" name="make" required>
+          <label for="make">Create a Dispute</label>
+        </div>
         <button type="submit">Start Fighting</button>
+      </form>
+      <a href="#">Find an existing dispute</a>
+      <form action="" class="findFight" id="findFight">
+        <div>
+          <input type="text" name="find" required>
+          <label for="find">Find a Dispute</label>
+        </div>
+        <button type="submit">Find</button>
       </form>
     </div>
   </section>
