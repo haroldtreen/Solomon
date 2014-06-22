@@ -2,10 +2,6 @@ var results = {
     //RESULTS
   resultsInit : function(data) {
     console.log(data.dispute.results);
-// if(data is a dispute)
-//     var path = data.dispute.results;
-// if (data is a user)
-//     var path =  data.user.
 
     $('#name1').text(data.dispute.results.name_1);
     $('#name2').text(data.dispute.results.name_2);

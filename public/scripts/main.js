@@ -54,17 +54,31 @@ var app = {
   //Switch View in the application
   //@param data - JSON object of current dispute
   //Hide HTML Section and display corresponding view based on Status  
-  switchView : function(data){
+  switchView : function(obj){
 
     //know which view to hide
     var oldView = app.view;
 
-    console.log(data);
-    if (app.view === "results"){
-      //dirty fix
-    }
-    else if ( data.dispute.results !== null){
+    if ( data.dispute.results !== null){
       app.view = "results";
+    }
+
+    if (app.view === "dirty"){
+      //REALLY REALLY DIRTY FIX
+      $.ajax({
+        type: "GET",
+        url: "http://0.0.0.0:3000/api/disputes/" + app.currentId,
+        dataType: "json",
+        success: function(data) {
+          obj = data;
+                //switch to new view (status)
+          app.view = data.dispute.status;
+
+          //Needed for Create Method
+          app.currentId = data.dispute.id;
+          app.currentName = data.dispute.name;
+        },
+      });
     }
     else {
       //switch to new view (status)
