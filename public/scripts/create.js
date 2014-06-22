@@ -6,11 +6,14 @@ var create = {
     //get item from input field
     var item = $("input[name=item]").val();
     //push to db
-    app.list.push(item);
-    //clear field
-    document.getElementById("createList").reset();
-    //add item to DOM
-    $(".create ul").append("<li>"+item+"</li>");
+
+    if(item !== ""){
+      app.list.push(item);
+      //clear field
+      document.getElementById("createList").reset();
+      //add item to DOM
+      $(".create ul").append("<li>"+item+"</li>");
+    }
   },
 
   //CREATE
@@ -36,7 +39,6 @@ var create = {
       dataType: "json",
       success: function(data) {
         app.switchView(data);
-        console.log(data);
         //move onto order section
       }
     });//ajax

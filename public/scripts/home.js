@@ -55,7 +55,6 @@ var home =  {
       data: newDispute,
       dataType: "json",
       success: function(data) {
-        alert("it works");
         app.switchView(data);
         //move onto create section
 

@@ -33,8 +33,9 @@ var order = {
         url: "http://0.0.0.0:3000/api/users",
         data: newUser,
         dataType: "json",
-        success: function(data) {
+        success: function(data,status) {
           console.log(data);
+          console.log(status);
           order.checkUser(data);
         },
         error: function(data) {
@@ -61,12 +62,11 @@ var order = {
       dataType: "json",
       success: function(data) {
         alert("2nd user!");
-        console.log(data);
-        data.dispute.status = "results";
+        app.view = "dirty";
         app.switchView(data);
       },
       error: function(data) {
-        alert("get your ex to fill out page");
+        window.location = " ../alert.html";
       }
     });
   },//app.check2ndUser
