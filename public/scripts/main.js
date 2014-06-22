@@ -59,7 +59,7 @@ var app = {
     //know which view to hide
     var oldView = app.view;
 
-    if ( data.dispute.results !== null){
+    if ( obj.dispute.results !== null){
       app.view = "results";
     }
 
@@ -82,11 +82,11 @@ var app = {
     }
     else {
       //switch to new view (status)
-      app.view = data.dispute.status;
+      app.view = obj.dispute.status;
 
       //Needed for Create Method
-      app.currentId = data.dispute.id;
-      app.currentName = data.dispute.name;
+      app.currentId = obj.dispute.id;
+      app.currentName = obj.dispute.name;
     }
 
     $('.'+app.view).show();
@@ -95,10 +95,10 @@ var app = {
     $('.'+oldView).hide();
 
     if (app.view === "order") {
-      order.orderInit(data);
+      order.orderInit(obj);
     }
     else if (app.view === "results") {
-      results.resultsInit(data);
+      results.resultsInit(obj);
     }
 
   },//app.switchView
