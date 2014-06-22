@@ -19,6 +19,8 @@ var home =  {
         },
         error: function(){
           $('.overlay1').fadeIn();
+          document.getElementById('findFightInput').text("");
+          //$('#findFight').reset();
         }
       });//ajax
     }
@@ -58,6 +60,8 @@ var home =  {
       success: function(){
         //error someone has already fuckin made that dispute
         $('.overlay2').fadeIn();
+        document.getElementById('createFightInput').text("");
+        // $('#createFight').reset();
       },
       error: function(){
         $.ajax({
