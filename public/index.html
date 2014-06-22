@@ -12,7 +12,7 @@
     <div class="wrapper">
       <form action="" class="makeFight" id="makeFight">
         <div>
-          <input type="text" name="make" required>
+          <input id="createFightInput" type="text" name="make" required>
           <label for="make">Enter Name of Dispute</label>
         </div>
         <button type="submit">Get Seperated!</button>
@@ -20,7 +20,7 @@
       <a href="#" class="showFindField">Been here before? Find an existing dispute →</a>
       <form action="" class="findFight" id="findFight">
         <div>
-          <input type="text" name="find" required>
+          <input id="findFightInput" type="text" name="find" required>
           <label for="find">Enter Name of Existing Dispute</label>
         </div>
         <button type="submit">Find</button>
@@ -65,14 +65,17 @@
       <h2>Results</h2>
       <div class="half left">
         <h3 class="resultsName" id="name1"></h3>
+        <ul></ul>
       </div>
 
       <div class="half right">
         <h3 class="resultsName" id="name2"></h3>
+        <ul></ul>
       </div>
 
       <div class="contested" id="contested">
         <h3>Contested Items</h3>
+        <ul></ul>
       </div>
     </div> 
   </section>
