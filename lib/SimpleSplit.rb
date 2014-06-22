@@ -14,14 +14,15 @@ class SimpleSplit
 
     begin
      
-     if @preferencesA[0] == @preferencesB[0]
-        results[:contested] << @preferencesA.shift
+     if @source[:preferencesA][0] == @source[:preferencesB][0]
+        results[:contested] << @source[:preferencesA].shift
+        @source[:preferencesB].shift
 
      else
-        @results[:preferencesA] << @preferencesA.shift
-        @results[:preferencesB] << @preferencesB.shift
-        @preferencesB.delete @results[:preferencesA][-1]
-        @preferencesA.delete @results[:preferencesB][-1]
+        @results[:preferencesA] << @source[:preferencesA].shift
+        @results[:preferencesB] << @source[:preferencesB].shift
+        @source[:preferencesB].delete @results[:preferencesA][-1]
+        @source[:preferencesA].delete @results[:preferencesB][-1]
      end
     
    end while @preferencesA.length != 0
