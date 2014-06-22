@@ -81,6 +81,13 @@ var app = {
     $( "#sortable" ).sortable();  
     $( "#sortable" ).disableSelection();
 
+    $("a.ani").on("click", function(event){
+      event.preventDefault();
+      $(".alert img").removeClass("pulseLeft pulseRight");
+      $(".alert img.left").addClass("breakLeft");
+      $(".alert img.right").addClass("breakRight");
+    });
+
   },//app.init
 
 
