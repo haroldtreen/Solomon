@@ -17,58 +17,61 @@ class ComplexSplit
 
     begin     
      compare_preference
+      if @available.length == 1
+        @results[:contested] << @available[0] if @available.length ==1
+        @available.delete_at 0
+      end
     end while @available.length != 0
+
   end
 
   def compare_preference
-    available_a = get_available @preferences_a
-    available_b = get_available @preferences_b
+    available_a = get_available_preferences @preferences_a
+    available_b = get_available_preferences @preferences_b
 
     if available_a[0] == available_b[0]
-      if initial_stage
-        @available.delete available_a[0]
-        @results[:contested] << available_a[0]
+      if @stage == 0
+          allocate_contested available_a[0]
       else
         feasibility_a = get_feasibility @preferences_a, available_a, @results[:preferences_a] || @preferences_a.length
         feasibility_b = get_feasibility @preferences_b, available_b, @results[:preferences_b] || @preferences_b.length
-        debugger
-        if feasibility_a <= stage
-          @available.delete available_a[1]
-          @available.delete available_b[0]
-          @results[:preferences_a] << available_a[1]
-          @results[:preferences_b] << available_b[0]
+        if feasibility_a <= @stage
+          allocate_item available_a[1], @results[:preferences_a]
+          allocate_item available_b[0], @results[:preferences_b]
           @stage += 1
-        elsif feasibility_b <= stage
-          @available.delete available_b[1]
-          @available.delete available_a[0]
-          @results[:preferences_b] << available_b[1]
-          @results[:preferences_a] << available_a[0]
+        elsif feasibility_b <= @stage
+          allocate_item available_a[0], @results[:preferences_a]
+          allocate_item available_b[1], @results[:preferences_b]
           @stage += 1
+        else
+          allocate_contested available_a[0]
         end
       end
 
     else
-      @available.delete available_a[0]
-      @available.delete available_b[0]
-      @results[:preferences_a] << available_a[0]
-      @results[:preferences_b] << available_b[0]
+      allocate_item available_a[0], @results[:preferences_a]
+      allocate_item available_b[0], @results[:preferences_b]
       @stage += 1
     end
   end
 
-  def get_first_available preferences
-    preferences.each do |preference|
-     return preference if @available.include? preference 
-    end
-  end
-
   def get_available_preferences preferences
-    preferences.select{|preference| @avialable.include? preference}
+    preferences.select{|preference| @available.include? preference}
   end
 
   def get_feasibility preferences, available, results
     index = preferences.index available[1]
     results_length = results.length || 0
     index - results_length
+  end
+
+  def allocate_item item, result
+    @available.delete item
+    result << item 
+  end
+
+  def allocate_contested item
+    @available.delete item
+    @results[:contested] << item
   end
 end
