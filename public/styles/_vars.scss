@@ -28,7 +28,7 @@ $smsans: 'Muli', sans-serif;
 @mixin ps {
   font-family: $smsans;
   font-size: .8rem;
-  color: $accent2a;
+  color: darken($accent2a, 20);
 }
 
 @mixin bigboys {
@@ -47,8 +47,4 @@ $smsans: 'Muli', sans-serif;
 
 @mixin undoDefault{
   outline: none
-}
-
-@mixin resultName {
-  
 }

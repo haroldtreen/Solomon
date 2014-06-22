@@ -219,6 +219,7 @@ section {
 .half {
   width: 50%;
   float: left;
+  margin-bottom: 33px;
 }
 
 #sortable {
@@ -270,6 +271,15 @@ h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
+}
+
+h3.resultsName {
+  width: 330px;
+  background: #e74c3c;
+  border-radius: 2px;
+  margin: 15px auto;
+  padding: 9px;
+  color: white;
 }
 
 button {
@@ -383,7 +393,7 @@ form.findFight, a.showMakeField {
 a.showFindField, a.showMakeField {
   font-family: "Muli", sans-serif;
   font-size: .8rem;
-  color: #bdc3c7;
+  color: #869198;
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
 }

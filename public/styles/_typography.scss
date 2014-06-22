@@ -23,3 +23,13 @@ h3 {
   @include sanslt;
   text-transform: uppercase;
 }
+
+h3.resultsName {
+  width: 330px;
+  background: $accent1;
+  border-radius: 2px;
+  margin: 15px auto;
+  padding: 9px;
+  color: white;
+  // background: lighten($accent1, 20);
+}
