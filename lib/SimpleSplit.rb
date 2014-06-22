@@ -4,30 +4,31 @@ class SimpleSplit
     @preferencesA = args[:preferencesA]
     @preferencesB = args[:preferencesB]
     @itemList = args[:itemList]
+
   end
 
   def start
     size = @preferencesA.size
-    results = {preferencesA: [], preferencesB: [], contested: []}
-    
+    @source = {preferencesA: @preferencesA.dup, preferencesB: @preferencesB.dup,}
+    @results = {preferencesA: [], preferencesB: [], contested: []}
+
     begin
      
      if @preferencesA[0] == @preferencesB[0]
-        results[:contested] << @preferencesA[0]
-        @preferencesA.delete results[:contested][-1]
-        @preferencesB.delete results[:contested][-1]
+        results[:contested] << @preferencesA.shift
+
      else
-        results[:preferencesA] << @preferencesA[0]
-        results[:preferencesB] << @preferencesB[0]
-        @preferencesA.delete results[:preferencesA][-1]
-        @preferencesB.delete results[:preferencesA][-1]
-        @preferencesA.delete results[:preferencesB][-1]
-        @preferencesB.delete results[:preferencesB][-1]
+        @results[:preferencesA] << @preferencesA.shift
+        @results[:preferencesB] << @preferencesB.shift
+        @preferencesB.delete @results[:preferencesA][-1]
+        @preferencesA.delete @results[:preferencesB][-1]
      end
     
    end while @preferencesA.length != 0
-
-   return results
   end
-  
+
+  def results
+    start unless @results
+    return @results  
+  end  
 end
