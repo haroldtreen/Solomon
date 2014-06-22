@@ -1,5 +1,9 @@
 section {
-  padding: 20px;
+  padding: 100px 0;
+}
+
+.create, .order, .results {
+  padding: 30px 0;
 }
 
 .wrapper {
@@ -20,4 +24,16 @@ section {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 330px;
+  margin: auto;
+  li {
+    padding: 5px;
+    margin: 5px 0;
+    background: $accent2;
+  }
 }
