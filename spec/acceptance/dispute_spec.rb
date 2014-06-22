@@ -55,13 +55,23 @@ resource "Dispute" do
       expect(response_items.sort).to eq(@dispute.items.sort)
     end
 
-    example "Error: Getting an incomplete dispute" do
+    example "Error: Getting an incomplete dispute", document: false do
       User.where(dispute_id: @dispute.id).destroy_all
       create(:user, dispute_id: @dispute.id)
 
       do_request
 
       expect(status).to be(422)
+    end
+
+    example "Error: Getting a non-existent dispute", document: false do
+      previous_id = @dispute.id
+      @dispute.id = 1000000
+
+      do_request
+      expect(status).to be(404)
+
+      @dispute.id = previous_id
     end
   end
 
