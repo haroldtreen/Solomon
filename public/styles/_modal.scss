@@ -1,0 +1,26 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  .modal {
+    position: relative;
+    width: 450px;
+    height: 235px;
+    background: rgb(255, 255, 255);
+    border-radius: 2px;
+    box-shadow: -5px 5px 0 $black;
+    margin: 160px auto;
+    padding: 20px;
+    text-align: center;
+    padding: 50px;
+    img.close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+  }
+}

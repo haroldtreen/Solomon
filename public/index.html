@@ -13,15 +13,15 @@
       <form action="" class="makeFight" id="makeFight">
         <div>
           <input type="text" name="make" required>
-          <label for="make">Create a Dispute</label>
+          <label for="make">Enter Name of Dispute</label>
         </div>
-        <button type="submit">Start Fighting</button>
+        <button type="submit">Get Seperated!</button>
       </form>
       <a href="#" class="showFindField">Been here before? Find an existing dispute →</a>
       <form action="" class="findFight" id="findFight">
         <div>
           <input type="text" name="find" required>
-          <label for="find">Find a Dispute</label>
+          <label for="find">Enter Name of Existing Dispute</label>
         </div>
         <button type="submit">Find</button>
       </form>
@@ -34,7 +34,7 @@
       <h2>Create List</h2>
       <form id="createList">
         <div>
-          <input type="text" name="item" required>
+          <input type="text" name="item">
           <label for="itemName">Add Item</label>
           <button type="default" id="addItem" class="plus">+</button>
         </div>
@@ -49,8 +49,10 @@
     <div class="wrapper">
       <h2>Reorder Items</h2>
       <form action="" id="reOrderList">
+      <div>
+        <input type="text" name="name" required>
         <label for="name">Your Name</label>
-        <input type="text" name="name">
+      </div>
         <ul id="sortable" class="list">
         </ul>
         <button type="submit">Submit</button>
@@ -72,6 +74,23 @@
       </div>
     </div> 
   </section>
+
+  <div class="overlay overlay1 close">
+    <div class="modal modal1">
+      <img src="x.svg" class="close" alt="">
+      <h2>Oops!</h2>
+      <p>Looks like that dispute name doesn't exist yet. Care to make a new one?</p>
+    </div>
+  </div>
+  
+  <div class="overlay overlay2 close">
+    <div class="modal modal2">
+      <img src="x.svg" class="close" alt="">
+      <h2>Sorry!</h2>
+      <p>That dispute name is already taken. Try something more creative.</p>
+    </div>
+  </div>
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	<script src="scripts/main.js"></script>

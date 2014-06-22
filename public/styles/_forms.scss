@@ -3,30 +3,47 @@ form {
   margin: 20px auto;
   & > div {
     position: relative;
-    label {
+   label {
       position: absolute;
-      left: 10px;
+      left: 12px;
       top: 13px;
       z-index: -1;
       transition: all 0.3s ease;
-    }
-    input {
+   }
+   input {
       background:transparent;
       margin-bottom: 10px;
-      &:valid {
-        background:white;
-        + label {
-          color:white;
-        }
-      }
-      &:focus + label {
-        top: -27px;
-        .create & {
-          top: 13px;
-          color:white;
-        }
-      }
+    } 
+  }
+}
+
+.home {
+  input:focus + label {
+    top: -23px;
+  }
+  input:valid + label {
+    color: white;
+  }
+}
+
+.create {
+  input:focus{
+    background: white;
+    + label {
+      color:transparent;
     }
+  }
+}
+
+.order {
+  input:focus {
+    background: white;
+    + label {
+      color:transparent;
+    } 
+  }
+  input:valid + label {
+    color:transparent;
   }
 }
 

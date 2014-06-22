@@ -8,6 +8,7 @@ var home =  {
     
     //if the input field isn't empty
     if(disputeName !== ""){
+      console.log("Dispute name is: " + disputeName);
       $.ajax({
         type: "GET",
         url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
@@ -49,17 +50,29 @@ var home =  {
         status: "create" //move onto next view create
       }
     }; //dispute object
+    
     $.ajax({
-      type: "POST",
-      url: "http://0.0.0.0:3000/api/disputes",
-      data: newDispute,
+      type: "GET",
+      url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
       dataType: "json",
-      success: function(data) {
-        app.switchView(data);
-        //move onto create section
-
+      success: function(){
+        alert("Dispute with inputted name: " + disputeName  + " already exists");
+        console.log("Dispute with name already exists");
+      },
+      error: function(){
+        $.ajax({
+          type: "POST",
+          url: "http://0.0.0.0:3000/api/disputes",
+          data: newDispute,
+          dataType: "json",
+          success: function(data) {
+            app.switchView(data);
+            //move onto create section
+          }
+        });//ajax
       }
-    });//ajax
+    });
+
   },//app.createDispute
 
 };
