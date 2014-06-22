@@ -3,6 +3,5 @@ FactoryGirl.define do
   factory :dispute do
   	name { "Name #{Random.rand(1000)}" }
   	items { ["cat", "hat", "mat"] }
-  	status { "started" }
   end
 end

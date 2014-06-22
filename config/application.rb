@@ -4,6 +4,8 @@ require 'rails/all'
 
 require './lib/SimpleSplit.rb'
 require './lib/complex_split.rb'
+require './lib/split_tweeter.rb'
+
 
 # require './lib/HardSplit.rb'
 # Require the gems listed in Gemfile, including any gems

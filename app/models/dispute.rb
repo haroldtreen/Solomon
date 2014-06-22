@@ -23,10 +23,27 @@ class Dispute < ActiveRecord::Base
 		end
 	end
 
+	def status
+		if users.count < 1
+			"unstarted"
+		elsif users.count == 1
+			"started"
+		else
+			update_twitter
+			"finished"
+		end
+	end
+
 	private
 
 	def lower_case_name
 		self.name = name.downcase
 	end
 
+	def update_twitter
+		unless is_tweeted
+			tweeter = SplitTweeter.new()
+			tweeter.tweet_dispute(self)
+		end
+	end
 end
