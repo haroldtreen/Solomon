@@ -123,6 +123,14 @@ var app = {
 
   },//app.switchView
 
+  goToAlert: function(){
+    console.log("Ran goToAlert!"); 
+    var oldView = app.view;
+    app.view = "alert";
+    $('.'+app.view).show();
+    $('.'+oldView).hide();
+  }
+
 };
 
 $(document).ready(function(){

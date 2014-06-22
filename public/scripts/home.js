@@ -24,7 +24,6 @@ var home =  {
         }
       });//ajax
 
-      $("h1").append(" Dispute: " + disputeName);
     }
     else {
       alert("plz enter a name");
@@ -79,7 +78,6 @@ var home =  {
             //move onto create section
           }
         });//ajax
-        $("h1").append(" Dispute: " + disputeName);
       }
 
     });
