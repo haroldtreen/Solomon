@@ -80,7 +80,9 @@ var order = {
       },//succcessss
       //if 2nd person hasn't completed their form, send em to alert page.
       error: function(data) {
-        window.location = " ../alert.html";
+//        window.location = " ../alert.html";
+        console.log("going to alert");
+        app.goToAlert();
       }
     });
   },//app.check2ndUser

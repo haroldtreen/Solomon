@@ -8,7 +8,7 @@ var home =  {
     
     //if the input field isn't empty
     if(disputeName !== ""){
-      console.log("Dispute name is: " + disputeName);
+      //console.log("Dispute name is: " + disputeName);
       $.ajax({
         type: "GET",
         url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
@@ -23,10 +23,14 @@ var home =  {
           //$('#findFight').reset();
         }
       });//ajax
+
     }
     else {
       alert("plz enter a name");
     }
+  
+    console.log("LOLOLOLOL");
+
   },//app.find 
 
 
@@ -75,6 +79,7 @@ var home =  {
           }
         });//ajax
       }
+
     });
 
   },//app.createDispute
