@@ -63,6 +63,7 @@ var order = {
       success: function(data) {
         alert("2nd user!");
         app.view = "dirty";
+        console.log("dirty");
         app.switchView(data);
       },
       error: function(data) {
