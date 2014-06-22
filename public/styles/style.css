@@ -391,6 +391,7 @@ a.showFindField:hover, a.showFindField:focus, a.showMakeField:hover, a.showMakeF
 }
 
 .overlay {
+  display: none;
   position: fixed;
   top: 0;
   bottom: 0;
