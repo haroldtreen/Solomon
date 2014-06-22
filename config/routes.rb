@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       collection do
         get :find_by_name, path: '/'
       end
+
+      member do
+        get :results
+      end
     end
 
     resources :users, only: [:show, :create, :update]
