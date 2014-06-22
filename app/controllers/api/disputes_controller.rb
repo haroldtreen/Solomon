@@ -10,14 +10,20 @@ class Api::DisputesController < ApiController
 	end
 
 	def create
-		@dispute = Dispute.create(dispute_params)
-		render :show, status: :created, location: api_dispute_path(@dispute)
+		if @dispute = Dispute.create(dispute_params)
+			render :show, status: :created, location: api_dispute_path(@dispute)
+		else
+			render json: @dispute.errors, status: :unprocessable_entity
+		end
 	end
 
 	def update
 		@dispute = Dispute.find(params[:id])
-		@dispute.update(dispute_params)
-		render :show, status: :accepted, location: api_dispute_path(@dispute)
+		if @dispute.update(dispute_params)
+			render :show, status: :accepted, location: api_dispute_path(@dispute)
+		else
+			render json: @dispute.errors, status: :unprocessable_entity
+		end
 	end
 
 	private

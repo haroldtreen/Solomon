@@ -2,11 +2,9 @@ require 'spec_helper'
 require 'rspec_api_documentation/dsl'
 
 resource "Dispute" do
-  
-  SHOW_ATTRIBUTES = ['status', 'items']
-
   before(:all) do 
     @dispute = create(:dispute)
+    @show_attributes = ['status', 'items']
   end
 
   before(:each) { @dispute.reload }
@@ -19,7 +17,7 @@ resource "Dispute" do
 
       expect(status).to eq(200)
       expect(json_response['dispute']['name']).to eq(@dispute.name.titleize)
-      expect_response_matches_resource(json_response['dispute'], @dispute, SHOW_ATTRIBUTES)
+      expect_response_matches_resource(json_response['dispute'], @dispute, @show_attributes)
     end
   end
 
@@ -29,7 +27,7 @@ resource "Dispute" do
 
       expect(status).to eq(200)
       expect(json_response['dispute']['name']).to eq(@dispute.name.titleize)
-      expect_response_matches_resource(json_response['dispute'], @dispute, SHOW_ATTRIBUTES)
+      expect_response_matches_resource(json_response['dispute'], @dispute, @show_attributes)
     end
 
     example "Error: No dispute exists", document: false do
@@ -50,7 +48,7 @@ resource "Dispute" do
 
       expect(status).to be(201)
       expect(json_response['dispute']['name']).to eq(dispute[:name].titleize)
-      expect_response_matches_resource(json_response['dispute'], dispute, SHOW_ATTRIBUTES)
+      expect_response_matches_resource(json_response['dispute'], dispute, @show_attributes)
     end
   end
 
@@ -64,7 +62,7 @@ resource "Dispute" do
 
       expect(status).to be(202)
       expect(json_response['dispute']['name']).to eq(dispute[:name].titleize)
-      expect_response_matches_resource(json_response['dispute'], dispute, SHOW_ATTRIBUTES)
+      expect_response_matches_resource(json_response['dispute'], dispute, @show_attributes)
     end
   end
 end
