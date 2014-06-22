@@ -261,6 +261,10 @@ h2 {
   font-weight: 300;
   text-transform: uppercase;
 }
+.modal h2 {
+  border-bottom: 1px solid #bdc3c7;
+  padding-bottom: 15px;
+}
 
 h3 {
   font-family: "Montserrat", sans-serif;
@@ -269,7 +273,7 @@ h3 {
 }
 
 button {
-  background: #e56153;
+  background: #e74c3c;
   border: 0;
   border-bottom: 4px solid #c0392b;
   color: whitesmoke;
@@ -316,6 +320,17 @@ input[type="text"]:hover, input[type="text"]:focus {
   outline: none;
 }
 
+svg {
+  width: 60px;
+  height: 60px;
+}
+svg .halfhearta {
+  fill: #e74c3c;
+}
+svg .halfheartb {
+  fill: #c0392b;
+}
+
 form {
   width: 330px;
   margin: 20px auto;
@@ -331,33 +346,33 @@ form > div label {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
-.create form > div label {
-  color: #37393a !important;
-}
 form > div input {
   background: transparent;
   margin-bottom: 10px;
 }
-.create form > div input {
-  background: transparent !important;
-  -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease;
+
+.home input:focus + label {
+  top: -23px;
 }
-.create form > div input:focus {
-  background: white !important;
+.home input:valid + label {
+  color: white;
 }
-form > div input:valid {
+
+.create input:focus {
   background: white;
 }
-form > div input:valid + label {
-  color: white;
+.create input:focus + label {
+  color: transparent;
 }
-form > div input:focus + label {
-  top: -27px;
+
+.order input:focus {
+  background: white;
 }
-.create form > div input:focus + label {
-  top: 13px;
-  color: white;
+.order input:focus + label {
+  color: transparent;
+}
+.order input:valid + label {
+  color: transparent;
 }
 
 form.findFight, a.showMakeField {
@@ -373,4 +388,32 @@ a.showFindField, a.showMakeField {
 }
 a.showFindField:hover, a.showFindField:focus, a.showMakeField:hover, a.showMakeField:focus {
   color: #37393a;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.overlay .modal {
+  position: relative;
+  width: 450px;
+  height: 235px;
+  background: white;
+  border-radius: 2px;
+  -webkit-box-shadow: -5px 5px 0 #37393a;
+          box-shadow: -5px 5px 0 #37393a;
+  margin: 160px auto;
+  padding: 20px;
+  text-align: center;
+  padding: 50px;
+}
+.overlay .modal img.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
 }

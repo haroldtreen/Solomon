@@ -6,6 +6,25 @@ var app = {
     //initialize program with all views hidden except HOME
     $( "section" ).not( "[class='home']" ).hide();
 
+    //MODALS    
+    var closeModal = function(){
+      $(".overlay").fadeOut();
+    }
+
+    $(".overlay").on("click", function(){
+      if ($(this).hasClass("close")) {
+        closeModal();
+      };
+    });
+
+    $(document).on("keydown", function(e){
+      if(e.which == 27) {
+        closeModal();
+      };
+    });
+
+    //HOME
+    //show/hide .home forms
     $(".showFindField").on("click", function(event){
       $("form.makeFight").hide();
       $("form.findFight").show();
@@ -18,6 +37,7 @@ var app = {
       $(this).hide();
       $(".showFindField").show();
     });
+
     //HOME
     //find a dispute
     $('#findFight').submit(function(event) {

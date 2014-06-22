@@ -32,3 +32,15 @@ input[type="text"] {
     @include undoDefault;
   } 
 }
+
+svg {
+  width: 60px;
+  height: 60px;
+  .halfhearta {
+    fill: $accent1;
+  }
+  .halfheartb {
+    fill: $accent1a;
+  }
+}
+
