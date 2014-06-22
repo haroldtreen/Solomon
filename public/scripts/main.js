@@ -6,6 +6,18 @@ var app = {
     //initialize program with all views hidden except HOME
     $( "section" ).not( "[class='home']" ).hide();
 
+    $(".showFindField").on("click", function(event){
+      $("form.makeFight").hide();
+      $("form.findFight").show();
+      $(this).hide();
+      $(".showMakeField").show();
+    });
+    $(".showMakeField").on("click", function(event){
+      $("form.findFight").hide();
+      $("form.makeFight").show();
+      $(this).hide();
+      $(".showFindField").show();
+    });
     //HOME
     //find a dispute
     $('#findFight').submit(function(event) {
@@ -54,25 +66,39 @@ var app = {
   //Switch View in the application
   //@param data - JSON object of current dispute
   //Hide HTML Section and display corresponding view based on Status  
-  switchView : function(data){
+  switchView : function(obj){
 
     //know which view to hide
     var oldView = app.view;
 
-    console.log(data);
-    if (app.view === "results"){
-      //dirty fix
-    }
-    else if ( data.dispute.results !== null){
+    if ( obj.dispute.results !== null){
       app.view = "results";
+    }
+
+    if (app.view === "dirty"){
+      //REALLY REALLY DIRTY FIX
+      $.ajax({
+        type: "GET",
+        url: "http://0.0.0.0:3000/api/disputes/" + app.currentId,
+        dataType: "json",
+        success: function(data) {
+          obj = data;
+                //switch to new view (status)
+          app.view = data.dispute.status;
+
+          //Needed for Create Method
+          app.currentId = data.dispute.id;
+          app.currentName = data.dispute.name;
+        },
+      });
     }
     else {
       //switch to new view (status)
-      app.view = data.dispute.status;
+      app.view = obj.dispute.status;
 
       //Needed for Create Method
-      app.currentId = data.dispute.id;
-      app.currentName = data.dispute.name;
+      app.currentId = obj.dispute.id;
+      app.currentName = obj.dispute.name;
     }
 
     $('.'+app.view).show();
@@ -81,10 +107,10 @@ var app = {
     $('.'+oldView).hide();
 
     if (app.view === "order") {
-      order.orderInit(data);
+      order.orderInit(obj);
     }
     else if (app.view === "results") {
-      results.resultsInit(data);
+      results.resultsInit(obj);
     }
 
   },//app.switchView

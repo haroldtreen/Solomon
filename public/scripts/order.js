@@ -62,7 +62,7 @@ var order = {
       dataType: "json",
       success: function(data) {
         alert("2nd user!");
-        app.view = "results";
+        app.view = "dirty";
         app.switchView(data);
       },
       error: function(data) {

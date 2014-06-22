@@ -3,7 +3,11 @@ body {
 }
 
 h1 {
-  @include sanslt;
+  @include sansheavy;
+  margin: 0;
+  background:$black2;
+  color:$white;
+  padding: 30px 45px;
 }
 
 h2 {

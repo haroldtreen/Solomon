@@ -3,6 +3,8 @@ $red2: #c0392b;
 $grey1: #ecf0f1;
 $grey2: #bdc3c7;
 $white: rgb(245, 245, 245);
+$black: rgb(55, 57, 58);
+$black2: #2c3e50;
 
 $accent1: $red1;
 $accent1a: $red2;
@@ -11,11 +13,23 @@ $accent2a: $grey2;
 
 $helv: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 $sans: 'Montserrat', sans-serif;
+$smsans: 'Muli', sans-serif;
 
 @mixin sanslt {
   font-family: $sans;
   font-weight: 300;
 }   
+
+@mixin sansheavy {
+  font-family: $sans;
+  font-weight: 700;
+}
+
+@mixin ps {
+  font-family: $smsans;
+  font-size: .8rem;
+  color: $accent2a;
+}
 
 @mixin bigboys {
   text-transform: uppercase;

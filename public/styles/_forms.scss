@@ -1,6 +1,6 @@
 form {
   width: 330px;
-  margin: auto;
+  margin: 20px auto;
   & > div {
     position: relative;
     label {
@@ -21,11 +21,24 @@ form {
       }
       &:focus + label {
         top: -27px;
+        .create & {
+          top: 13px;
+          color:white;
+        }
       }
     }
   }
 }
 
-form.findFight {
+form.findFight, a.showMakeField {
   display: none;
 }
+
+a.showFindField, a.showMakeField {
+  @include ps;
+  transition: all 0.2s ease;
+  &:hover, &:focus {
+    color: $black;
+  }
+}
+
