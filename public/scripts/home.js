@@ -18,7 +18,7 @@ var home =  {
           app.switchView(data);
         },
         error: function(){
-          alert(disputeName + " not found");
+          $('.overlay1').fadeIn();
         }
       });//ajax
     }
@@ -56,8 +56,8 @@ var home =  {
       url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
       dataType: "json",
       success: function(){
-        alert("Dispute with inputted name: " + disputeName  + " already exists");
-        console.log("Dispute with name already exists");
+        //error someone has already fuckin made that dispute
+        $('.overlay2').fadeIn();
       },
       error: function(){
         $.ajax({

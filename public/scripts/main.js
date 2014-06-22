@@ -24,13 +24,14 @@ var app = {
     });
 
     //HOME
-    //show/hide .home forms
+    //show/hide CREATE & FIND forms
     $(".showFindField").on("click", function(event){
       $("form.makeFight").hide();
       $("form.findFight").show();
       $(this).hide();
       $(".showMakeField").show();
     });
+
     $(".showMakeField").on("click", function(event){
       $("form.findFight").hide();
       $("form.makeFight").show();
