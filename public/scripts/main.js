@@ -11,14 +11,14 @@ var app = {
     $('#findFight').submit(function(event) {
       event.preventDefault();
       //search for a dispute
-      app.find();
+      home.find();
     });
 
     //HOME
     //create a new dispute
     $('#makeFight').submit(function(event) {
       event.preventDefault();
-      app.createDispute();
+      home.createDispute();
     });
 
     //CREATE
@@ -26,21 +26,21 @@ var app = {
     //add Item to the list
     $('#addItem').click(function(event) {
       event.preventDefault();
-      app.addItem();
+      create.addItem();
     });
 
     //CREATE
     //submit the list
     $('#createList').submit(function(event) {
       event.preventDefault();
-      app.finalizeList();
+      create.finalizeList();
     });
 
     //ORDER
     //After reordering the list and submitting to DB
     $('#reOrderList').submit(function(event) {
       event.preventDefault();
-      app.submitedReOrder();
+      order.submitedReOrder();
     });//reOrderList
 
     //ORDER
@@ -78,13 +78,16 @@ var app = {
     $('.'+oldView).hide();
 
     if (app.view === "order") {
-      app.orderInit(data);
+      order.orderInit(data);
     }
     else if (app.view === "results") {
-      app.resultsInit(data);
+      results.resultsInit(data);
     }
 
   },//app.switchView
+
+/*****
+
 
   //HOME
   //Search by name if a dispute exists then g
@@ -115,7 +118,7 @@ var app = {
   /**********************************************\
   *                   NOT DONE
   * needs to test if dispute already exists
-  \**********************************************/
+  \**********************************************
   //HOME
   //Creates new dispute and push to DB
   createDispute : function() {
@@ -124,7 +127,7 @@ var app = {
     
     /*******************************
     TEST IF disputeName already exists here with AJAX call?
-    ********************************/
+    ********************************
 
     //create new JSON object to be input into DB
     var newDispute = {
@@ -253,6 +256,7 @@ var app = {
       dataType: "json",
       success: function(data) {
         alert("2nd user!");
+        console.log(data);
         data.dispute.status = "results";
         app.switchView(data);
       },
@@ -282,6 +286,9 @@ var app = {
     }
 
   }
+
+  **/
+
 };
 
 $(document).ready(function(){
