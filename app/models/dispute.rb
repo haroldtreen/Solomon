@@ -1,5 +1,9 @@
 class Dispute < ActiveRecord::Base
-	before_save :lower_case_name
+
+	before_validation :lower_case_name
+
+	validates :name, uniqueness: true
+
 
 	private
 
