@@ -254,7 +254,9 @@ h1 {
   margin: 0;
   background: #2c3e50;
   color: whitesmoke;
-  padding: 30px 45px;
+  padding: 35px 45px;
+  -webkit-transition: padding 0.2s ease;
+          transition: padding 0.2s ease;
 }
 
 h2 {
@@ -265,6 +267,15 @@ h2 {
 .modal h2 {
   border-bottom: 1px solid #bdc3c7;
   padding-bottom: 15px;
+}
+
+h2.sub {
+  font-size: 1rem;
+  text-transform: none;
+  position: relative;
+  top: -65px;
+  margin-left: 45px;
+  color: #bdc3c7;
 }
 
 h3 {
