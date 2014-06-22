@@ -12,6 +12,7 @@ var order = {
   },//app.orderInit
 
   //ORDER
+  //creates a new user w/ name & sorted list
   submitedReOrder : function() {
     var sortedList = [];
     //loop through ul 
@@ -41,13 +42,13 @@ var order = {
         error: function(data) {
           
           alert("fail");
-          //transfer you to another page here
-          // .. . 
+          //need modal
         }
 
       });//ajax
     } else {
       alert("not valid name");
+      //need modal
     }
 
       //test if the name is filled out
@@ -55,16 +56,29 @@ var order = {
   },//app.submitedReOrder
 
   //ORDER
+  //check if user is 1st or 2nd by handling results.
+  //if successful then they its been 2nd person since results exist because algorithm ran
+  //if error then first person has just submitted so send em to alert page
   checkUser : function(data) {
+    console.log("checking user");
     $.ajax({
       type: "GET",
       url: "http://0.0.0.0:3000/api/disputes/" + data.user.dispute_id + "/results",
       dataType: "json",
       success: function(data) {
-        alert("2nd user!");
-        app.view = "dirty";
-        app.switchView(data);
-      },
+        
+        //get a dispute object then run a switch view
+        $.ajax({
+          type: "GET",
+          url: "http://0.0.0.0:3000/api/disputes/" + app.currentId,
+          dataType: "json",
+          success: function(data) {
+            console.log("2nd user submitted, here is dispute w/ results " + data); 
+            app.switchView(data);
+          },
+        });//ajaax
+      },//succcessss
+      //if 2nd person hasn't completed their form, send em to alert page.
       error: function(data) {
         window.location = " ../alert.html";
       }
