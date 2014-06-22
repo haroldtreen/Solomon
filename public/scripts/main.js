@@ -12,7 +12,6 @@ var app = {
       event.preventDefault();
       //search for a dispute
       app.find();
-
     });
 
     //HOME
@@ -27,10 +26,7 @@ var app = {
     //add Item to the list
     $('#addItem').click(function(event) {
       event.preventDefault();
-      var item = $("input[name=item]").val();
-      app.list.push(item);
-      document.getElementById("createList").reset();
-      $(".create ul").append("<li>"+item+"</li>");
+      app.addItem();
     });
 
     //CREATE
@@ -60,21 +56,32 @@ var app = {
   //Hide HTML Section and display corresponding view based on Status  
   switchView : function(data){
 
+    var oldView = app.view;
+
+    if (data.dispute.results !== null){
+      app.view = "results";
+    }
+    else {
+      //switch to new view (status)
+      app.view = data.dispute.status;
+    }
+
+
     app.currentId = data.dispute.id;
     app.currentName = data.dispute.name;
 
-    var oldView = app.view;
 
-    //switch to new view (status)
-    app.view = data.dispute.status;
   
     $('.'+app.view).show();
 
     //hide currentView
     $('.'+oldView).hide();
 
-    if (app.view == "order") {
+    if (app.view === "order") {
       app.orderInit(data);
+    }
+    else if (app.view === "results") {
+      app.resultsInit(data);
     }
 
   },//app.switchView
@@ -91,6 +98,7 @@ var app = {
         url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
         dataType: "json",
         success: function(data) {
+
           app.switchView(data);
         },
         error: function(){
@@ -142,6 +150,19 @@ var app = {
 
 
   //CREATE
+  //Add item to the list
+  addItem: function() {
+    //get item from input field
+    var item = $("input[name=item]").val();
+    //push to db
+    app.list.push(item);
+    //clear field
+    document.getElementById("createList").reset();
+    //add item to DOM
+    $(".create ul").append("<li>"+item+"</li>");
+  },
+
+  //CREATE
   //Pressing finalize button
   //Get items that user added to list and push to server
   finalizeList : function(){
@@ -172,6 +193,8 @@ var app = {
 
 
   //ORDER
+  //Initialize the ordering page by pull in items in list
+  //@param data - JSON dispute object
   orderInit : function(data){
     var items = data.dispute.items;
     for (var i = 0; i < items.length; i++) {
@@ -230,14 +253,21 @@ var app = {
       dataType: "json",
       success: function(data) {
         alert("2nd user!");
-        console.log(data);
-
+        data.dispute.status = "results";
+        app.switchView(data);
       },
       error: function(data) {
         alert("get your ex to fill out page");
       }
     });
-  }//app.check2ndUser
+  },//app.check2ndUser
+
+  //RESULTS
+  resultsInit : function(data) {
+    console.log(data.dispute.results);
+
+    
+  }
 };
 
 $(document).ready(function(){
@@ -250,3 +280,11 @@ $(document).ready(function(){
 
   app.init();
 });
+
+
+
+
+
+
+
+
