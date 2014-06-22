@@ -44,40 +44,7 @@ var app = {
     //After reordering the list and submitting to DB
     $('#reOrderList').submit(function(event) {
       event.preventDefault();
-
-      var sortedList = [];
-      //loop through ul 
-      $("ul.list li").each(function(i){
-        sortedList.push($(this).text());
-      });
-
-      var newUser = {
-        user: {
-          name: "app.currentName",
-          items: sortedList,
-          dispute_id: app.currentId
-        }
-      };
-
-      $.ajax({
-        type: "POST",
-        url: "http://0.0.0.0:3000/api/users",
-        data: newUser,
-        dataType: "json",
-        success: function(data) {
-          app.switchView(data);
-          console.log(data);
-          alert("2nd person");
-          //move onto order section
-        },
-        error: function(data) {
-          alert("get your ex to fill out page");
-          //transfer you to another page here
-          // .. . 
-        }
-
-      });//ajax
-
+      app.submitedReOrder();
     });//reOrderList
 
     //ORDER
@@ -210,9 +177,60 @@ var app = {
     for (var i = 0; i < items.length; i++) {
       $( "ul.list" ).append( "<li>"+items[i]+"</li>" );
     }
-
     //iterate through the list and create an array
-  }//app.orderInit
+  },//app.orderInit
+
+  //ORDER
+  submitedReOrder : function() {
+    var sortedList = [];
+    //loop through ul 
+    $("ul.list li").each(function(i){
+      sortedList.push($(this).text());
+    });
+
+    var newUser = {
+      user: {
+        name: app.currentName,
+        items: sortedList,
+        dispute_id: app.currentId
+      }
+    };
+
+      //test if the name is filled out
+
+
+    $.ajax({
+      type: "POST",
+      url: "http://0.0.0.0:3000/api/users",
+      data: newUser,
+      dataType: "json",
+      success: function(data) {
+        console.log(data);
+        app.checkUser(data);
+      },
+      error: function(data) {
+        
+        alert("fail");
+        //transfer you to another page here
+        // .. . 
+      }
+
+    });//ajax
+  },//app.submitedReOrder
+
+  checkUser : function(data) {
+    $.ajax({
+      type: "GET",
+      url: "http://0.0.0.0:3000/api/disputes/" + data.user.dispute_id + "/results",
+      dataType: "json",
+      success: function(data) {
+        alert("2nd user!");
+      },
+      error: function(data) {
+        alert("get your ex to fill out page");
+      }
+    });
+  }//app.check2ndUser
 };
 
 $(document).ready(function(){
