@@ -187,14 +187,18 @@ var app = {
     $("ul.list li").each(function(i){
       sortedList.push($(this).text());
     });
-
-    var newUser = {
-      user: {
-        name: app.currentName,
-        items: sortedList,
-        dispute_id: app.currentId
-      }
-    };
+    var userName = $("input[name=name]").val();
+    if (userName !== "") {
+      var newUser = {
+        user: {
+          name: userName,
+          items: sortedList,
+          dispute_id: app.currentId
+        }
+      };
+    } else {
+      alert("not valid name");
+    }
 
       //test if the name is filled out
 
