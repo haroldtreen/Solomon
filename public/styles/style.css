@@ -451,6 +451,24 @@ a.showFindField:hover, a.showFindField:focus, a.showMakeField:hover, a.showMakeF
     width: 330px;
   }
 }
+@media (max-width: 320px) {
+  a h1 {
+    text-align: center;
+  }
+
+  .wrapper {
+    width: 310px;
+  }
+
+  .half {
+    width: 310px;
+  }
+
+  .overlay .modal {
+    width: 300px;
+    padding: 25px;
+  }
+}
 a.ani {
   display: block;
   width: 60px;
