@@ -221,24 +221,94 @@ section {
   cursor: move;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
 h1 {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
 h2 {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
 }
 
 h3 {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
+}
+
+button {
+  background: #e56153;
+  border: 0;
+  border-bottom: 2px solid #c0392b;
+  color: whitesmoke;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 6px 9px;
+  border-radius: 2px;
+  height: 45px;
+  display: block;
+  width: 100%;
+}
+button:hover, button:focus {
+  outline: none;
+  border-bottom: 0;
+}
+
+input[type="text"] {
+  border: 2px solid #ecf0f1;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 6px 9px;
+  border-radius: 2px;
+  height: 45px;
+  display: block;
+  width: 100%;
+}
+input[type="text"]:hover, input[type="text"]:focus {
+  outline: none;
+}
+
+form {
+  width: 330px;
+  margin: auto;
+}
+form > div {
+  position: relative;
+}
+form > div label {
+  position: absolute;
+  left: 10px;
+  top: 13px;
+  z-index: -1;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+form > div input {
+  background: transparent;
+  margin-bottom: 10px;
+}
+form > div input:valid {
+  background: white;
+}
+form > div input:valid + label {
+  color: white;
+}
+form > div input:focus + label {
+  top: -27px;
+}
+
+form.findFight {
+  display: none;
 }

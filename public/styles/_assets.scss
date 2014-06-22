@@ -1,0 +1,19 @@
+button {
+  background: $accent1;
+  border:0;
+  border-bottom: 2px solid $accent1a;
+  color: $white;
+  @include stylishButton;
+  &:hover, &:focus {
+    @include undoDefault;
+    border-bottom: 0;
+  }
+}
+
+input[type="text"] {
+  border: 2px solid $accent2;
+  @include stylishButton;
+  &:hover, &:focus {
+    @include undoDefault;
+  } 
+}
