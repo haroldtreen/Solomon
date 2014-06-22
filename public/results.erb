@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Solomon</title>
+  <%= stylesheet_link_tag("/styles/style") %>
+  <link href='http://fonts.googleapis.com/css?family=Muli:300,400|Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="icon" 
+        type="image/png" 
+        href="i/fav.png">
+</head>
+
+<body>
+	<a href="#home">
+    <h1>Solomon</h1>
+  </a>  
+  <h2 class="sub"></h2>
+
+  <section class="results">
+    <div class="wrapper">
+      <h2>Results<%= " for: #{@dispute.name}" %></h2>
+      <div class="half left">
+        <h3 class="resultsName" id="name1"><%= @dispute.users.first.name.humanize %></h3>
+        <ul>
+	        <% @results[:items_1].compact.each do |i| %>
+		        <li><%= i %></li>
+	        <% end %>
+        </ul>
+      </div>
+
+      <div class="half right">
+        <h3 class="resultsName" id="name2"><%= @dispute.users.last.name.humanize %></h3>
+        <ul>
+        	<% @results[:items_2].compact.each do |i| %>
+		        <li><%= i %></li>
+	        <% end %>
+        </ul>
+      </div>
+
+    	<% if @results[:contested] %>
+	      <div class="contested" id="contested">
+	        <h3>Contested Items</h3>
+	        <ul>
+	        	<% @results[:contested].compact.each do |i| %>
+			        <li><%= i %></li>
+		        <% end %>
+	        </ul>
+	      </div>
+      <% end %>
+    </div> 
+  </section>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+</body>
+
+
+</html>
