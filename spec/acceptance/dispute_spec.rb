@@ -42,8 +42,8 @@ resource "Dispute" do
     let(:id) { @dispute.id }
 
     example "Getting a disputes results" do
-      create(:user, dispute_id: @dispute.id)
-      create(:user, dispute_id: @dispute.id)
+      user_1 = create(:user, dispute_id: @dispute.id)
+      user_2 = create(:user, dispute_id: @dispute.id)
 
       do_request
 
@@ -52,16 +52,28 @@ resource "Dispute" do
                        json_response['results']['contested']
 
       expect(status).to eq(200)
+      expect(json_response['results']['name_1']).to eq(user_1.name)
+      expect(json_response['results']['name_2']).to eq(user_2.name)
       expect(response_items.sort).to eq(@dispute.items.sort)
     end
 
-    example "Error: Getting an incomplete dispute" do
+    example "Error: Getting an incomplete dispute", document: false do
       User.where(dispute_id: @dispute.id).destroy_all
       create(:user, dispute_id: @dispute.id)
 
       do_request
 
       expect(status).to be(422)
+    end
+
+    example "Error: Getting a non-existent dispute", document: false do
+      previous_id = @dispute.id
+      @dispute.id = 1000000
+
+      do_request
+      expect(status).to be(404)
+
+      @dispute.id = previous_id
     end
   end
 
