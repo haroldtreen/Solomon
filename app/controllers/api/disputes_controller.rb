@@ -41,11 +41,4 @@ class Api::DisputesController < ApiController
 	def dispute_params
 		params.require(:dispute).permit(:name, { items: [] }, :status)
 	end
-
-	def compute_results(users)
-		user_1 = users.first
-		user_2 = users.last
-
-
-	end
 end
