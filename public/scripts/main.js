@@ -6,6 +6,18 @@ var app = {
     //initialize program with all views hidden except HOME
     $( "section" ).not( "[class='home']" ).hide();
 
+    $(".showFindField").on("click", function(event){
+      $("form.makeFight").hide();
+      $("form.findFight").show();
+      $(this).hide();
+      $(".showMakeField").show();
+    });
+    $(".showMakeField").on("click", function(event){
+      $("form.findFight").hide();
+      $("form.makeFight").show();
+      $(this).hide();
+      $(".showFindField").show();
+    });
     //HOME
     //find a dispute
     $('#findFight').submit(function(event) {

@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Soloman</title>
+  <title>Solomon</title>
   <link rel="stylesheet" href="styles/style.css">
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Muli:300,400|Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <h1>Solomon</h1>
   <section class="home">
     <div class="wrapper">
-      <!-- <h1>Solomon</h1> -->
       <form action="" class="makeFight" id="makeFight">
         <div>
           <input type="text" name="make" required>
@@ -17,7 +17,7 @@
         </div>
         <button type="submit">Start Fighting</button>
       </form>
-      <a href="#">Find an existing dispute</a>
+      <a href="#" class="showFindField">Been here before? Find an existing dispute →</a>
       <form action="" class="findFight" id="findFight">
         <div>
           <input type="text" name="find" required>
@@ -25,6 +25,7 @@
         </div>
         <button type="submit">Find</button>
       </form>
+      <a href="#" class="showMakeField">New to Solomon? Create a new dispute →</a>
     </div>
   </section>
 
@@ -32,9 +33,11 @@
     <div class="wrapper">
       <h2>Create List</h2>
       <form id="createList">
-        <label for="itemName">Add Item</label>
-        <input type="text" name="item">
-        <button type="default" id="addItem">Add Item</button>
+        <div>
+          <input type="text" name="item" required>
+          <label for="itemName">Add Item</label>
+          <button type="default" id="addItem" class="plus">+</button>
+        </div>
         <button type="submit" id="finalizeList">Finalize List</button>
       </form>
       <ul>
