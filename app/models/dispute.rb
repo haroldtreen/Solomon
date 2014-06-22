@@ -23,7 +23,7 @@ class Dispute < ActiveRecord::Base
 		end
 	end
 
-	def status
+	def dispute_status
 		if users.count < 1
 			"unstarted"
 		elsif users.count == 1
