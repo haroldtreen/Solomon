@@ -105,12 +105,13 @@ var app = {
       //switch to new view (status)
       app.view = data.dispute.status;
 
+    }
       app.currentId = data.dispute.id;
       app.currentName = data.dispute.name;
-    }
     
 
     $("h1").css("padding-bottom", "60px");
+    console.log("what name should be: " + app.currentName);
     $("h2.sub").text(app.currentName);
 
     $('.'+app.view).show();
