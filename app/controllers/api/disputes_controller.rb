@@ -43,6 +43,6 @@ class Api::DisputesController < ApiController
 	private
 
 	def dispute_params
-		params.require(:dispute).permit(:name, { items: [] })
+		params.require(:dispute).permit(:name, { items: [] }, :status)
 	end
 end
