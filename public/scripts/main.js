@@ -1,30 +1,30 @@
 var app = {
-  
-  //initialize the app with event listeners 
   init: function() {
+    app.list = [];
 
-  
-    //initialize program with all views hidden except HOME
+    //enable sortable
+    $( "#sortable" ).sortable();  
+    $( "#sortable" ).disableSelection();
+
+    //hide other views
     $( "section" ).not( "[class='home']" ).hide();
 
-    //HOME
+
     //find a dispute
     $('#findFight').submit(function(event) {
       event.preventDefault();
-      //search for a dispute
       app.find();
 
     });
 
-    //HOME
     //create a new dispute
     $('#makeFight').submit(function(event) {
       event.preventDefault();
       app.createDispute();
+      console.log("sanity check");
     });
 
-    //CREATE
-    //click add item or hitting enter on submit
+    
     //add Item to the list
     $('#addItem').click(function(event) {
       event.preventDefault();
@@ -34,32 +34,52 @@ var app = {
       $(".create ul").append("<li>"+item+"</li>");
     });
 
-    //CREATE
     //submit the list
     $('#createList').submit(function(event) {
       event.preventDefault();
       app.finalizeList();
+      console.log("create list works");
     });
 
-    //ORDER
-    //After reordering the list and submitting to DB
     $('#reOrderList').submit(function(event) {
       event.preventDefault();
+      var sortedList = [];
+      //loop through ul 
+      $("ul.list li").each(function(i){
+        sortedList.push($(this).text());
+      });
+      console.log(sortedList);
+      console.log("this shit works too");
     });
+  },//init
 
-    //ORDER
-    //enable sortable
-    $( "#sortable" ).sortable();  
-    $( "#sortable" ).disableSelection();
+  find : function() {
+    console.log("find fight works");
+    //app.disputeName = $("input[name='find']").val().toLowerCase();
+    var disputeName = $("input[name='find']").val().toLowerCase();
+    //if the input field isn't empty
+    if(disputeName !== ""){
+      $.ajax({
+        type: "GET",
+        url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
+        dataType: "json",
+        success: function(data) {
+          app.examineFindResult(data);
+        },
+        error: function(){
+          console.log("not found");
+        }
+      });//ajax
+    }
+    else {
+      alert("plz enter a name");
+    }
+  },
 
-  },//app.init
+  // examineFindResult: function(result) {
 
-
-
-
-  //Switch View in the application
-  //@param data - JSON object of current dispute
-  //Hide HTML Section and display corresponding view based on Status  
+  // },
+  
   switchView : function(data){
 
     app.currentId = data.dispute.id;
@@ -74,55 +94,19 @@ var app = {
 
     //hide currentView
     $('.'+oldView).hide();
-
-  },//app.switchView
-
-  //HOME
-  //Search by name if a dispute exists then g
-  find: function() {
-    var disputeName = $("input[name='find']").val().toLowerCase();
     
-    //if the input field isn't empty
-    if(disputeName !== ""){
-      $.ajax({
-        type: "GET",
-        url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
-        dataType: "json",
-        success: function(data) {
-          app.switchView(data);
-        },
-        error: function(){
-          alert(disputeName + " not found");
-        }
-      });//ajax
-    }
-    else {
-      alert("plz enter a name");
-    }
-  }, //app.find
+    if (app.view == "order") {
+      app.orderInit(data);
+    };
+  },
 
-
-  /**********************************************\
-  *                   NOT DONE
-  * needs to test if dispute already exists
-  \**********************************************/
-  //HOME
-  //Creates new dispute and push to DB
   createDispute : function() {
-    //take name of dispute from input field
     var disputeName = $("input[name='make']").val().toLowerCase();
-    
-
-    /*******************************
-    TEST IF disputeName already exists here with AJAX call?
-    ********************************/
-
-    //create new JSON object to be input into DB
     var newDispute = {
       dispute: {
         name : disputeName,
-        items : [''], //no items in array
-        status: "create" //move onto next view create
+        items : [''],
+        status: "create"
       }
     }; //dispute object
     $.ajax({
@@ -139,46 +123,43 @@ var app = {
     });//ajax
   },
 
-
-  //CREATE
-  //Pressing finalize button
-  //Get items that user added to list and push to server
   finalizeList : function(){
-    
-    //build JSON object
     var editedDispute = {
       dispute: {
         id: app.currentId,
         name: app.currentName,
-        items: app.list, 
+        items: app.list,
         status: 'order',
       }
     };
 
-    //Update the database with new list
     $.ajax({
       type: "PATCH",
       url: "http://0.0.0.0:3000/api/disputes/"+app.currentId,
       data: editedDispute,
       dataType: "json",
       success: function(data) {
-
         app.switchView(data);
-        //move onto create section
-
+        console.log(data);
+        //move onto order section
       }
     });//ajax
-  }
+  },
 
+  orderInit : function(data){
+    var items = data.dispute.items;
+    for (var i = 0; i < items.length; i++) {
+      $( "ul.list" ).append( "<li>"+items[i]+"</li>" );
+    };
+  }
 };//app
 
 $(document).ready(function(){
 
-  //initialize variables
-  app.view = 'home';    //start at homepage section
-  app.currentId = '0';  //id 
-  app.currentName = ''; //name of dispute
-  app.list = [];        //list of items to be disputed
-
   app.init();
+  app.view = 'home';
+  app.currentId = '0';
+  app.currentName = '';
+
+
 });
