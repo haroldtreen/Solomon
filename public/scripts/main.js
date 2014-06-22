@@ -9,18 +9,18 @@ var app = {
     //MODALS    
     var closeModal = function(){
       $(".overlay").fadeOut();
-    }
+    };
 
     $(".overlay").on("click", function(){
       if ($(this).hasClass("close")) {
         closeModal();
-      };
+      }
     });
 
     $(document).on("keydown", function(e){
       if(e.which == 27) {
         closeModal();
-      };
+      }
     });
 
     //HOME
@@ -86,39 +86,26 @@ var app = {
   //Switch View in the application
   //@param data - JSON object of current dispute
   //Hide HTML Section and display corresponding view based on Status  
-  switchView : function(obj){
+  switchView : function(data){
+
+    console.log(data);
 
     //know which view to hide
     var oldView = app.view;
 
-    if ( obj.dispute.results !== null){
+
+    if (data.dispute.results !== null){
       app.view = "results";
+      console.log("should be results");
     }
 
-    if (app.view === "dirty"){
-      //REALLY REALLY DIRTY FIX
-      $.ajax({
-        type: "GET",
-        url: "http://0.0.0.0:3000/api/disputes/" + app.currentId,
-        dataType: "json",
-        success: function(data) {
-          obj = data;
-                //switch to new view (status)
-          app.view = data.dispute.status;
-
-          //Needed for Create Method
-          app.currentId = data.dispute.id;
-          app.currentName = data.dispute.name;
-        },
-      });
-    }
     else {
+      console.log("not results");
       //switch to new view (status)
-      app.view = obj.dispute.status;
+      app.view = data.dispute.status;
 
-      //Needed for Create Method
-      app.currentId = obj.dispute.id;
-      app.currentName = obj.dispute.name;
+      app.currentId = data.dispute.id;
+      app.currentName = data.dispute.name;
     }
 
     $('.'+app.view).show();
@@ -127,10 +114,10 @@ var app = {
     $('.'+oldView).hide();
 
     if (app.view === "order") {
-      order.orderInit(obj);
+      order.orderInit(data);
     }
     else if (app.view === "results") {
-      results.resultsInit(obj);
+      results.resultsInit(data);
     }
 
   },//app.switchView
