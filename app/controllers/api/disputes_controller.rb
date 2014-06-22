@@ -30,11 +30,11 @@ class Api::DisputesController < ApiController
 		@dispute = Dispute.find(params[:id])
 		users = User.where(dispute_id: @dispute.id).limit(2)
 
-		splitter = SimpleSplit.new(preferencesA: users.first.items, preferencesB: users.last.items, itemList: @dispute.items)
+		splitter = SimpleSplit.new(preferences_a: users.first.items, preferences_b: users.last.items)
 		results = splitter.results
 
 		if users.count >= 2
-			render json: { results: { user_1: results[:preferencesA], user_2: results[:preferencesB], contested: results[:contested]}}
+			render json: { results: { user_1: results[:preferences_a], user_2: results[:preferences_b], contested: results[:contested]}}
 		else
 			render json: { message: "Incomplete Dispute" }, status: :unprocessable_entity
 		end

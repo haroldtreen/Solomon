@@ -1,35 +1,28 @@
 class SimpleSplit
 
   def initialize args
-    @preferencesA = args[:preferencesA]
-    @preferencesB = args[:preferencesB]
-    @itemList = args[:itemList]
-
+    @preferences_a = args[:preferences_a]
+    @preferences_b = args[:preferences_b]
   end
 
   def start
-    size = @preferencesA.size
-    @source = {preferencesA: @preferencesA.dup, preferencesB: @preferencesB.dup,}
-    @results = {preferencesA: [], preferencesB: [], contested: []}
+    @results = {preferences_a: [], preferences_b: [], contested: []}
 
-    begin
-     
-     if @source[:preferencesA][0] == @source[:preferencesB][0]
-        results[:contested] << @source[:preferencesA].shift
-        @source[:preferencesB].shift
-
+    begin     
+     if @preferences_a[0] == @preferences_b[0]
+        results[:contested] << @preferences_a.shift
+        @preferences_b.shift
      else
-        @results[:preferencesA] << @source[:preferencesA].shift
-        @results[:preferencesB] << @source[:preferencesB].shift
-        @source[:preferencesB].delete @results[:preferencesA][-1]
-        @source[:preferencesA].delete @results[:preferencesB][-1]
+        @results[:preferences_a] << @preferences_a.shift
+        @results[:preferences_b] << @preferences_b.shift
+        @preferences_b.delete @results[:preferences_a][-1]
+        @preferences_a.delete @results[:preferences_b][-1]
      end
-    
-   end while @preferencesA.length != 0
+    end while @preferences_a.length != 0
   end
 
   def results
     start unless @results
     return @results  
-  end  
+  end
 end
