@@ -1,11 +1,12 @@
 require 'spec_helper'
 
-describe SimpleSplit do
-  context "simple_split" do
+describe ComplexSplit do
+  context "complex_split" do
     it "should divide a [1] [1] dispute successfully" do
+      
+      result = {preferences_a: [], preferences_b: [], contested: [1]}
       preferences = {preferences_a: [1], preferences_b: [1], itemList: [1]}
       dispute = SimpleSplit.new preferences
-      result = {preferences_a: [], preferences_b: [], contested: [1]}
       expect(dispute.results).to eq result
     end
 
@@ -23,18 +24,19 @@ describe SimpleSplit do
       expect(dispute.results).to eq result
     end
 
-    it 'should divide a [1,2,3,4] [2,3, 4,1] dispute successfuly' do
+    it 'should divide a [1,2,3,4] [2,3,4,1] dispute successfuly' do
       preferences = {preferences_a: [1,2,3,4], preferences_b: [2,3,4,1], itemList: [1,2,3,4]}
       dispute = SimpleSplit.new preferences
-      result = {preferences_a: [1], preferences_b: [2], contested: [3,4]} 
+      result = {preferences_a: [1,3], preferences_b: [2,4], contested: []}
       expect(dispute.results).to eq result
     end
-    
+
     it 'should divide a [1,2,3,4,5,6] [2,3,5,4,1,6] dispute successfuly' do
       preferences = {preferences_a: [1,2,3,4,5,6], preferences_b: [2,3,5,4,1,6], itemList: [1,2,3,4,5,6]}
       dispute = SimpleSplit.new preferences
-      result = {preferences_a: [1,4], preferences_b: [2,5], contested: [3,6]} 
+      result = {preferences_a: [1,3], preferences_b: [2,5], contested: [6,4]} 
       expect(dispute.results).to eq result
     end
   end
+ 
 end
