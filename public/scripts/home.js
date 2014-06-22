@@ -11,7 +11,7 @@ var home =  {
       //console.log("Dispute name is: " + disputeName);
       $.ajax({
         type: "GET",
-        url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
+        url: "www.solomonsplits.herokuapp.com/api/disputes?name="+disputeName,
         dataType: "json",
         success: function(data) {
 
@@ -59,7 +59,7 @@ var home =  {
     
     $.ajax({
       type: "GET",
-      url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
+      url: "www.solomonsplits.herokuapp.com/api/disputes?name="+disputeName,
       dataType: "json",
       success: function(){
         //error someone has already fuckin made that dispute
@@ -70,7 +70,7 @@ var home =  {
       error: function(){
         $.ajax({
           type: "POST",
-          url: "http://0.0.0.0:3000/api/disputes",
+          url: "www.solomonsplits.herokuapp.com/api/disputes",
           data: newDispute,
           dataType: "json",
           success: function(data) {
