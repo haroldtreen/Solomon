@@ -9,24 +9,11 @@ var app = {
     //find a dispute
     $('#findFight').submit(function(event) {
       event.preventDefault();
-      console.log("find fight works");
+      app.find();
 
-      app.disputeName = $("input[name='find']").val().toLowerCase();
-
-      $.ajax({
-        type: "GET",
-        url: "http://0.0.0.0:3000/api/disputes/1",
-        dataType: "json",
-
-        success: function(data) {
-          console.log(data);
-        }
-      });//ajax
     });
 
     //create a new dispute
-
-
     $('#makeFight').submit(function(event) {
       event.preventDefault();
       app.createDispute();
@@ -46,6 +33,7 @@ var app = {
     //submit the list
     $('#createList').submit(function(event) {
       event.preventDefault();
+      app.finalizeList();
       console.log("create list works");
     });
 
@@ -55,17 +43,44 @@ var app = {
     });
   },//init
 
-  find: function(result) {
-
+  find: function() {
+    console.log("find fight works");
+    //app.disputeName = $("input[name='find']").val().toLowerCase();
+    var disputeName = $("input[name='find']").val().toLowerCase();
+    //if the input field isn't empty
+    if(disputeName !== ""){
+      $.ajax({
+        type: "GET",
+        url: "http://0.0.0.0:3000/api/disputes?name="+disputeName,
+        dataType: "json",
+        success: function(data) {
+          app.examineFindResult(data);
+        },
+        error: function(){
+          console.log("not found");
+        }
+      });//ajax
+    }
+    else {
+      alert("plz enter a name");
+    }
   },
+
+  // examineFindResult: function(result) {
+
+  // },
   
-  switchView : function(status){
+  switchView : function(data){
+
+    app.currentId = data.dispute.id;
+    app.currentName = data.dispute.name;
 
     var oldView = app.view;
 
     //switch to new view (status)
-    app.view = status;
-    $('.'+status).show();
+    app.view = data.dispute.status;
+  
+    $('.'+app.view).show();
 
     //hide currentView
     $('.'+oldView).hide();
@@ -86,21 +101,47 @@ var app = {
       url: "http://0.0.0.0:3000/api/disputes",
       data: newDispute,
       dataType: "json",
-      success: function() {
+      success: function(data) {
         alert("it works");
-        
-        app.switchView('create');
+        app.switchView(data);
+        //move onto create section
+
+      }
+    });//ajax
+  },
+
+  finalizeList : function(){
+    var editedDispute = {
+      dispute: {
+        id: app.currentId,
+        name: app.currentName,
+        items: app.list,
+        status: 'order',
+      }
+    };
+
+    $.ajax({
+      type: "PATCH",
+      url: "http://0.0.0.0:3000/api/disputes/"+app.currentId,
+      data: editedDispute,
+      dataType: "json",
+      success: function(data) {
+
+        app.switchView(data);
         //move onto create section
 
       }
     });//ajax
   }
+
 };//app
 
 $(document).ready(function(){
 
   app.init();
   app.view = 'home';
+  app.currentId = '0';
+  app.currentName = '';
 
 
 });
