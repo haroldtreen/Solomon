@@ -49,7 +49,7 @@ resource "Dispute" do
 
       response_items = json_response['results']['user_1'] +
                        json_response['results']['user_2'] +
-                       json_response['results']['contended'] 
+                       json_response['results']['contested']
 
       expect(status).to eq(200)
       expect(response_items.sort).to eq(@dispute.items.sort)

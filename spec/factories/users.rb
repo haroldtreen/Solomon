@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :user do
   	name { "User #{Random.rand(100)}"}
-  	dispute_id Random.rand(10)
-  	items { ["cat", "rat", "bat"] }
+  	dispute_id { create(:dispute).id }
+  	items { Dispute.find(dispute_id).items }
   end
 end
