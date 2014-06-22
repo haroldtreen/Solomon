@@ -5,14 +5,24 @@ form {
     position: relative;
     label {
       position: absolute;
-      left: 10px;
+      left: 12px;
       top: 13px;
       z-index: -1;
       transition: all 0.3s ease;
+      .create & {
+        color:$black !important;
+      }
     }
     input {
       background:transparent;
       margin-bottom: 10px;
+      .create & {
+        background: transparent !important;
+        transition: all 0.3s ease;
+        &:focus {
+          background: white !important;
+        }
+      }
       &:valid {
         background:white;
         + label {
@@ -26,6 +36,9 @@ form {
           color:white;
         }
       }
+      .order & {
+
+      }  
     }
   }
 }

@@ -34,7 +34,7 @@
       <h2>Create List</h2>
       <form id="createList">
         <div>
-          <input type="text" name="item" required>
+          <input type="text" name="item">
           <label for="itemName">Add Item</label>
           <button type="default" id="addItem" class="plus">+</button>
         </div>
@@ -49,8 +49,10 @@
     <div class="wrapper">
       <h2>Reorder Items</h2>
       <form action="" id="reOrderList">
+      <div>
+        <input type="text" name="name" required>
         <label for="name">Your Name</label>
-        <input type="text" name="name">
+      </div>
         <ul id="sortable" class="list">
         </ul>
         <button type="submit">Submit</button>

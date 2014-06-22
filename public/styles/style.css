@@ -207,7 +207,7 @@ section {
 }
 
 .create, .order, .results {
-  padding: 30px 0;
+  padding: 51px 0;
 }
 
 .wrapper {
@@ -325,15 +325,26 @@ form > div {
 }
 form > div label {
   position: absolute;
-  left: 10px;
+  left: 12px;
   top: 13px;
   z-index: -1;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
+.create form > div label {
+  color: #37393a !important;
+}
 form > div input {
   background: transparent;
   margin-bottom: 10px;
+}
+.create form > div input {
+  background: transparent !important;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.create form > div input:focus {
+  background: white !important;
 }
 form > div input:valid {
   background: white;
