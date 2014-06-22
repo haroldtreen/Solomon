@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
@@ -10,6 +8,7 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 
 gem 'awesome_print'
+gem 'rspec_api_documentation'
 gem 'api_doc_viewer', '~> 0.1.0' # UI for test-generated documentation
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -51,7 +50,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec_api_documentation'
 	# gem 'guard-rspec', '~> 4.2.6', require: false # Watches for file changes and runs the specs
 	gem 'factory_girl_rails'
 	gem 'rspec-rails', '~> 2.14'

@@ -4,20 +4,26 @@
   <meta charset="UTF-8">
   <title>Soloman</title>
   <link rel="stylesheet" href="styles/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <section class="home">
     <div class="wrapper">
-      <h1>Solomon</h1>
-      <form action="" class="findFight" id="findFight">
-        <label for="find">Find a Dispute</label>
-        <input type="text" name="find">
-        <button type="submit">Find</button>
-      </form>
+      <!-- <h1>Solomon</h1> -->
       <form action="" class="makeFight" id="makeFight">
-        <label for="make">Create a Dispute</label>
-        <input type="text" name="make">
+        <div>
+          <input type="text" name="make" required>
+          <label for="make">Create a Dispute</label>
+        </div>
         <button type="submit">Start Fighting</button>
+      </form>
+      <a href="#">Find an existing dispute</a>
+      <form action="" class="findFight" id="findFight">
+        <div>
+          <input type="text" name="find" required>
+          <label for="find">Find a Dispute</label>
+        </div>
+        <button type="submit">Find</button>
       </form>
     </div>
   </section>
@@ -52,28 +58,24 @@
   <section class="results">
     <div class="wrapper">
       <h2>Results</h2>
-      <div class="half">
-        <h3>Person1</h3>
-        <div id="sortedItem1">thing</div>
-        <div id="sortedItem2">thing</div>
-        <div id="sortedItem3">thing</div>
+      <div class="half left">
+        <h3 class= "resultsName" id="name1"></h3>
       </div>
-      <div class="half">
-        <h3>Asshole2</h3>
-        <div id="sortedItem4">thing</div>
-        <div id="sortedItem5">thing</div>
-        <div id="sortedItem6">thing</div>
+      <div class="half right">
+        <h3 class="resultsName" id="name2"></h3>
       </div>
-      <div class="clearfix">
+      <div class="clearfix" id="contested">
         <h3>Contested Items</h3>
-        <div id="sortedItem7">thing</div>
-        <div id="sortedItem8">thing</div>
-        <div id="sortedItem9">thing</div>
       </div>
     </div> 
   </section>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="scripts/main.js"></script>
- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/home.js"></script>
+	<script src="scripts/create.js"></script>
+	<script src="scripts/order.js"></script>
+	<script src="scripts/results.js"></script>
+
 </body>
 </html>

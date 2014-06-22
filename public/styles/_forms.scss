@@ -1,0 +1,31 @@
+form {
+  width: 330px;
+  margin: auto;
+  & > div {
+    position: relative;
+    label {
+      position: absolute;
+      left: 10px;
+      top: 13px;
+      z-index: -1;
+      transition: all 0.3s ease;
+    }
+    input {
+      background:transparent;
+      margin-bottom: 10px;
+      &:valid {
+        background:white;
+        + label {
+          color:white;
+        }
+      }
+      &:focus + label {
+        top: -27px;
+      }
+    }
+  }
+}
+
+form.findFight {
+  display: none;
+}
