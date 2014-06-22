@@ -2,6 +2,11 @@ var app = {
   init: function() {
     app.list = [];
 
+    //enable sortable
+
+    $( "#sortable" ).sortable();  
+    $( "#sortable" ).disableSelection();
+
     //hide other views
     $( "section" ).not( "[class='home']" ).hide();
 

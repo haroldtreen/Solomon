@@ -26,10 +26,20 @@ class Api::DisputesController < ApiController
 		end
 	end
 
+	def results
+		@dispute = Dispute.find(params[:id])
+		users = User.where(dispute_id: @dispute.id).limit(2)
+
+		if users.count >= 2
+			render json: { results: { user_1: [], user_2: [], contended: @dispute.items}}
+		else
+			render json: { message: "Incomplete Dispute" }, status: :unprocessable_entity
+		end
+	end
+
 	private
 
 	def dispute_params
 		params.require(:dispute).permit(:name, { items: [] }, :status)
 	end
-
 end

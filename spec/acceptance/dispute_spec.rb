@@ -38,6 +38,33 @@ resource "Dispute" do
     end
   end
 
+  get "/api/disputes/:id/results" do
+    let(:id) { @dispute.id }
+
+    example "Getting a disputes results" do
+      create(:user, dispute_id: @dispute.id)
+      create(:user, dispute_id: @dispute.id)
+
+      do_request
+
+      response_items = json_response['results']['user_1'] +
+                       json_response['results']['user_2'] +
+                       json_response['results']['contended'] 
+
+      expect(status).to eq(200)
+      expect(response_items.sort).to eq(@dispute.items.sort)
+    end
+
+    example "Error: Getting an incomplete dispute" do
+      User.where(dispute_id: @dispute.id).destroy_all
+      create(:user, dispute_id: @dispute.id)
+
+      do_request
+
+      expect(status).to be(422)
+    end
+  end
+
   post "/api/disputes" do
     example "Creating a dispute" do
       dispute = attributes_for(:dispute)

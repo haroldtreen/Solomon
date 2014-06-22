@@ -36,14 +36,14 @@ module.exports = function(grunt) {
 		//watch file changes and recompile if necessary
 		watch: {
 			css: {//task
-			    files: '**/*.scss', //where to watch
+			    files: 'styles/*.scss', //where to watch
 			    tasks: ['sass','autoprefixer'], 
 			    options: {
 			      livereload: true
 			    }
 			},
 			javascript: {
-				files: ['**/*.js'],
+				files: ['scripts/*.js'],
 				tasks: ['jshint'],
 				options: {
 					livereload: true
