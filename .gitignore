@@ -24,3 +24,5 @@ config/database.yml
 
 /doc
 
+
+api_keys.sh
