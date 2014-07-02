@@ -35,8 +35,8 @@ var order = {
         data: newUser,
         dataType: "json",
         success: function(data,status) {
-          console.log(data);
-          console.log(status);
+          //console.log(data);
+          //console.log(status);
           order.checkUser(data);
         },
         error: function(data) {
@@ -73,7 +73,7 @@ var order = {
           url: "http://solomonsplits.me/api/disputes/" + app.currentId,
           dataType: "json",
           success: function(data) {
-            console.log("2nd user submitted, here is dispute w/ results " + data); 
+            //console.log("2nd user submitted, here is dispute w/ results " + data); 
             app.switchView(data);
           },
         });//ajaax
@@ -81,8 +81,8 @@ var order = {
       //if 2nd person hasn't completed their form, send em to alert page.
       error: function(data) {
 //        window.location = " ../alert.html";
-        console.log("going to alert");
-        app.goToAlert();
+        //console.log("going to alert");
+          app.goToAlert();
       }
     });
   },//app.check2ndUser

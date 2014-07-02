@@ -23,7 +23,7 @@ var app = {
       }
     });
 
-        //HOME
+    //HOME
     //find a dispute
     $('#findFight').submit(function(event) {
       event.preventDefault();
@@ -65,8 +65,6 @@ var app = {
       event.preventDefault();
       $('.overlay6').show();
     });
-
-    
 
     //HOME
     //show/hide CREATE & FIND forms
@@ -127,19 +125,16 @@ var app = {
   //Hide HTML Section and display corresponding view based on Status  
   switchView : function(data){
 
-    console.log(data);
-
     //know which view to hide
     var oldView = app.view;
 
-
     if (data.dispute.results !== null){
       app.view = "results";
-      console.log("should be results");
+      //console.log("should be results");
     }
 
     else {
-      console.log("not results");
+      //console.log("not results");
       //switch to new view (status)
       app.view = data.dispute.status;
 
@@ -149,7 +144,7 @@ var app = {
     
 
     $("h1").css("padding-bottom", "60px");
-    console.log("what name should be: " + app.currentName);
+    //console.log("what name should be: " + app.currentName);
     $("h3.sub").text(app.currentName);
 
     $('.'+app.view).show();
@@ -167,7 +162,7 @@ var app = {
   },//app.switchView
 
   goToAlert: function(){
-    console.log("Ran goToAlert!"); 
+    //console.log("Ran goToAlert!"); 
     var oldView = app.view;
     app.view = "alert";
     $('.'+app.view).show();

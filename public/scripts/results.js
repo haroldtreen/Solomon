@@ -1,7 +1,7 @@
 var results = {
     //RESULTS
   resultsInit : function(data) {
-    console.log(data.dispute.results);
+    //console.log(data.dispute.results);
 
     $('#name1').text(data.dispute.results.name_1);
     $('#name2').text(data.dispute.results.name_2);
