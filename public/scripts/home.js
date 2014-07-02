@@ -34,10 +34,6 @@ var home =  {
   },//app.find 
 
 
-  /**********************************************\
-  *                   NOT DONE
-  * needs to test if dispute already exists
-  \**********************************************/
   //HOME
   //Creates new dispute and push to DB
   createDispute : function() {

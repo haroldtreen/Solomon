@@ -206,10 +206,6 @@ section {
   padding: 100px 0;
 }
 
-.create, .order, .results {
-  padding: 51px 0;
-}
-
 .wrapper {
   width: 800px;
   margin: 0 auto;
@@ -241,6 +237,7 @@ ul li {
   padding: 5px;
   margin: 5px 0;
   background: #ecf0f1;
+  word-wrap: break-word;
 }
 
 body {
@@ -263,13 +260,14 @@ h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
+  margin-bottom: 34px;
 }
 .modal h2 {
   border-bottom: 1px solid #bdc3c7;
   padding-bottom: 15px;
 }
 
-h2.sub {
+h3.sub {
   font-size: 1rem;
   text-transform: none;
   position: relative;
@@ -353,6 +351,17 @@ svg .halfheartb {
   fill: #c0392b;
 }
 
+img.info {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  right: 11px;
+  top: 12px;
+}
+img.info#createInfo {
+  right: 61px;
+}
+
 form {
   width: 330px;
   margin: 20px auto;
@@ -380,6 +389,9 @@ form > div input {
   color: white;
 }
 
+.create input[name="item"] {
+  padding-right: 87px;
+}
 .create input:focus {
   background: white;
 }

@@ -17,17 +17,23 @@
   <section id="home" class="home">
     <div class="wrapper">
       <form action="" class="makeFight" id="makeFight">
+      <div class="sectionTitle">
+        <h2>Create a Dispute</h2>
+      </div> 
         <div>
+          <img id="makeInfo" class="info" src="i/info.svg" alt="info">
           <input id="createFightInput" type="text" name="make" required>
-          <label for="make">Enter Name of Dispute</label>
+          <label for="make">Enter Dispute Name</label>
         </div>
         <button type="submit">Get Separated!</button>
       </form>
       <a href="#" class="showFindField">Been here before? Find an existing dispute →</a>
       <form action="" class="findFight" id="findFight">
+        <h2>Find a Dispute</h2>
         <div>
+          <img id="findInfo" class="info" src="i/info.svg" alt="info">
           <input id="findFightInput" type="text" name="find" required>
-          <label for="find">Enter Name of Existing Dispute</label>
+          <label for="find">Enter Dispute Name</label>
         </div>
         <button type="submit">Find</button>
       </form>
@@ -40,6 +46,7 @@
       <h2>Create List</h2>
       <form id="createList">
         <div>
+          <img id="createInfo" class="info" src="i/info.svg" alt="info">
           <input type="text" name="item">
           <label for="itemName">Add Item</label>
           <button type="default" id="addItem" class="plus">+</button>
@@ -56,6 +63,7 @@
       <h2>Reorder Items</h2>
       <form action="" id="reOrderList">
       <div>
+        <img id="reorderInfo" class="info" src="i/info.svg" alt="info">
         <input type="text" name="name" required>
         <label for="name">Your Name</label>
       </div>
@@ -112,6 +120,9 @@
     </div>
   </div>
 
+  <footer>
+    
+  </footer>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	<script src="scripts/main.js"></script>
