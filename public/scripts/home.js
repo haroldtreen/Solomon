@@ -25,11 +25,6 @@ var home =  {
       });//ajax
 
     }
-    else {
-      alert("plz enter a name");
-    }
-  
-    console.log("LOLOLOLOL");
 
   },//app.find 
 
@@ -39,10 +34,6 @@ var home =  {
   createDispute : function() {
     //take name of dispute from input field
     var disputeName = $("input[name='make']").val().toLowerCase();
-    
-    /*******************************
-    TEST IF disputeName already exists here with AJAX call?
-    ********************************/
 
     //create new JSON object to be input into DB
     var newDispute = {
