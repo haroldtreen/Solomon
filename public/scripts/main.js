@@ -23,6 +23,51 @@ var app = {
       }
     });
 
+        //HOME
+    //find a dispute
+    $('#findFight').submit(function(event) {
+      event.preventDefault();
+      //search for a dispute
+      home.find();
+    });
+
+    //HOME
+    //create a new dispute
+    $('#makeFight').submit(function(event) {
+      event.preventDefault();
+      home.createDispute();
+    });
+
+    // HOME - INFO Modal
+    // Display information on creating a new dispute
+    $('#makeInfo').on("click", function(event){
+      event.preventDefault();
+      $('.overlay3').show();
+    });
+
+    // HOME - INFO Modal
+    // Display information on finding a dispute
+    $('#findInfo').on("click", function(event){
+      event.preventDefault();
+      $('.overlay4').show();
+    });
+
+    // CREATE - INFO Modal
+    // Display information on creating a list 
+    $('#createInfo').on("click", function(event){
+      event.preventDefault();
+      $('.overlay5').show();
+    });
+
+    // ORDER - INFO Modal
+    // Display information on reordering a list
+    $('#reorderInfo').on("click", function(event){
+      event.preventDefault();
+      $('.overlay6').show();
+    });
+
+    
+
     //HOME
     //show/hide CREATE & FIND forms
     $(".showFindField").on("click", function(event){
@@ -39,20 +84,6 @@ var app = {
       $(".showFindField").show();
     });
 
-    //HOME
-    //find a dispute
-    $('#findFight').submit(function(event) {
-      event.preventDefault();
-      //search for a dispute
-      home.find();
-    });
-
-    //HOME
-    //create a new dispute
-    $('#makeFight').submit(function(event) {
-      event.preventDefault();
-      home.createDispute();
-    });
 
     //CREATE
     //click add item or hitting enter on submit
