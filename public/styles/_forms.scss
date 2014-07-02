@@ -27,6 +27,9 @@ form {
 }
 
 .create {
+  input[name="item"]{
+    padding-right: 87px;
+  }
   input:focus{
     background: white;
     + label {

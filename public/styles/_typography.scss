@@ -14,13 +14,14 @@ h1 {
 h2 {
   @include sanslt;
   text-transform: uppercase;
+  margin-bottom: 34px;
   .modal & {
     border-bottom: 1px solid $accent2a;
     padding-bottom: 15px;
   }
 }
 
-h2.sub {
+h3.sub {
   @include sub;
 }
 

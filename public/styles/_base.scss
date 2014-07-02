@@ -3,7 +3,7 @@ section {
 }
 
 .create, .order, .results {
-  padding: 51px 0;
+  // padding: 51px 0;
 }
 
 .wrapper {
@@ -36,5 +36,6 @@ ul {
     padding: 5px;
     margin: 5px 0;
     background: $accent2;
+    word-wrap:break-word;
   }
 }

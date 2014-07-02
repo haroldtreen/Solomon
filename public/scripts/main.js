@@ -119,7 +119,7 @@ var app = {
 
     $("h1").css("padding-bottom", "60px");
     console.log("what name should be: " + app.currentName);
-    $("h2.sub").text(app.currentName);
+    $("h3.sub").text(app.currentName);
 
     $('.'+app.view).show();
 
