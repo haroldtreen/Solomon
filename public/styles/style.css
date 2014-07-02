@@ -453,6 +453,10 @@ a.showFindField:hover, a.showFindField:focus, a.showMakeField:hover, a.showMakeF
   cursor: pointer;
 }
 
+.overlay3 .modal, .overlay4 .modal, .overlay5 .modal, .overlay6 .modal {
+  height: auto;
+}
+
 @media (max-width: 600px) {
   .wrapper {
     width: 330px;
