@@ -1,6 +1,6 @@
 var app = {
 
-  mainURL:  "http://0.0.0.0:3000",
+  mainURL:  "http://solomonsplits.me",
   
   //initialize the app with event listeners 
   init: function() {
