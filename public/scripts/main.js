@@ -24,6 +24,49 @@ var app = {
     });
 
     //HOME
+    //find a dispute
+    $('#findFight').submit(function(event) {
+      event.preventDefault();
+      //search for a dispute
+      home.find();
+    });
+
+    //HOME
+    //create a new dispute
+    $('#makeFight').submit(function(event) {
+      event.preventDefault();
+      home.createDispute();
+    });
+
+    // HOME - INFO Modal
+    // Display information on creating a new dispute
+    $('#makeInfo').on("click", function(event){
+      event.preventDefault();
+      $('.overlay3').show();
+    });
+
+    // HOME - INFO Modal
+    // Display information on finding a dispute
+    $('#findInfo').on("click", function(event){
+      event.preventDefault();
+      $('.overlay4').show();
+    });
+
+    // CREATE - INFO Modal
+    // Display information on creating a list 
+    $('#createInfo').on("click", function(event){
+      event.preventDefault();
+      $('.overlay5').show();
+    });
+
+    // ORDER - INFO Modal
+    // Display information on reordering a list
+    $('#reorderInfo').on("click", function(event){
+      event.preventDefault();
+      $('.overlay6').show();
+    });
+
+    //HOME
     //show/hide CREATE & FIND forms
     $(".showFindField").on("click", function(event){
       $("form.makeFight").hide();
@@ -39,20 +82,6 @@ var app = {
       $(".showFindField").show();
     });
 
-    //HOME
-    //find a dispute
-    $('#findFight').submit(function(event) {
-      event.preventDefault();
-      //search for a dispute
-      home.find();
-    });
-
-    //HOME
-    //create a new dispute
-    $('#makeFight').submit(function(event) {
-      event.preventDefault();
-      home.createDispute();
-    });
 
     //CREATE
     //click add item or hitting enter on submit
@@ -96,19 +125,16 @@ var app = {
   //Hide HTML Section and display corresponding view based on Status  
   switchView : function(data){
 
-    console.log(data);
-
     //know which view to hide
     var oldView = app.view;
 
-
     if (data.dispute.results !== null){
       app.view = "results";
-      console.log("should be results");
+      //console.log("should be results");
     }
 
     else {
-      console.log("not results");
+      //console.log("not results");
       //switch to new view (status)
       app.view = data.dispute.status;
 
@@ -118,7 +144,7 @@ var app = {
     
 
     $("h1").css("padding-bottom", "60px");
-    console.log("what name should be: " + app.currentName);
+    //console.log("what name should be: " + app.currentName);
     $("h3.sub").text(app.currentName);
 
     $('.'+app.view).show();
@@ -136,7 +162,7 @@ var app = {
   },//app.switchView
 
   goToAlert: function(){
-    console.log("Ran goToAlert!"); 
+    //console.log("Ran goToAlert!"); 
     var oldView = app.view;
     app.view = "alert";
     $('.'+app.view).show();
