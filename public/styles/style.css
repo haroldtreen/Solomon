@@ -291,6 +291,24 @@ h3.resultsName {
   color: white;
 }
 
+.modal span {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+footer ul li {
+  font-family: "Muli", sans-serif;
+  font-size: 12px;
+}
+
+footer h4 {
+  font-family: "Muli", sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #bdc3c7;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
 button {
   background: #e74c3c;
   border: 0;
@@ -598,4 +616,45 @@ a.ani img.breakRight {
   100% {
     -webkit-transform: translate(21px, 25px) rotate(43deg);
   }
+}
+footer {
+  background: whitesmoke;
+  padding: 15px 45px 35px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+footer ul {
+  width: 100%;
+}
+footer ul li {
+  display: inline-block;
+  background: none;
+  margin: 0;
+  color: #bdc3c7;
+  padding: 0 15px;
+  -webkit-transition: 0.3s all ease;
+          transition: 0.3s all ease;
+}
+footer ul li:hover, footer ul li:focus {
+  color: #869198;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+footer ul li img {
+  width: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+footer ul li .square {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+footer ul li .square img {
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
 }

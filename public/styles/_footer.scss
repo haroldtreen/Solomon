@@ -1,0 +1,40 @@
+footer {
+  background: $lightestGrey;
+  padding: 15px 45px 35px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  ul {
+    width: 100%;
+    li {
+      display: inline-block;
+      background: none;
+      margin: 0;
+      color: $grey2;
+      padding: 0 15px;
+      transition: 0.3s all ease;
+      &:hover, &:focus {
+        color: darken($grey2, 20);
+        text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+      }
+      img {
+        width: 50px;
+        border-radius: 50%;
+        margin: 0 10px;
+      }
+      .square {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 0 10px;
+        img {
+          border-radius: 0;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
