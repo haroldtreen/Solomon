@@ -34,7 +34,7 @@ var create = {
     //Update the database with new list
     $.ajax({
       type: "PATCH",
-      url: "http://solomonsplits.me/api/disputes/"+app.currentId,
+      url: app.mainURL+"/api/disputes/"+app.currentId,
       data: editedDispute,
       dataType: "json",
       success: function(data) {

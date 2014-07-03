@@ -31,7 +31,7 @@ var order = {
 
       $.ajax({
         type: "POST",
-        url: "http://solomonsplits.me/api/users",
+        url: app.mainURL+"/api/users",
         data: newUser,
         dataType: "json",
         success: function(data,status) {
@@ -63,14 +63,14 @@ var order = {
     console.log("checking user");
     $.ajax({
       type: "GET",
-      url: "http://solomonsplits.me/api/disputes/" + data.user.dispute_id + "/results",
+      url: app.mainURL+"/api/disputes/" + data.user.dispute_id + "/results",
       dataType: "json",
       success: function(data) {
         
         //get a dispute object then run a switch view
         $.ajax({
           type: "GET",
-          url: "http://solomonsplits.me/api/disputes/" + app.currentId,
+          url: app.mainURL+"/api/disputes/" + app.currentId,
           dataType: "json",
           success: function(data) {
             //console.log("2nd user submitted, here is dispute w/ results " + data); 

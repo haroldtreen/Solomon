@@ -620,10 +620,6 @@ a.ani img.breakRight {
 footer {
   background: whitesmoke;
   padding: 15px 45px 35px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 footer ul {
   width: 100%;

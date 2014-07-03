@@ -1,4 +1,6 @@
 var app = {
+
+  mainURL:  "http://0.0.0.0:3000",
   
   //initialize the app with event listeners 
   init: function() {
