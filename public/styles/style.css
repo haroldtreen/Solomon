@@ -206,6 +206,10 @@ section {
   padding: 100px 0;
 }
 
+.bigboy {
+  min-height: 640px;
+}
+
 .wrapper {
   width: 800px;
   margin: 0 auto;
@@ -273,6 +277,7 @@ h3.sub {
   position: relative;
   top: -65px;
   margin-left: 45px;
+  margin-bottom: 0;
   color: #bdc3c7;
 }
 

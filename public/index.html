@@ -10,159 +10,164 @@
         href="i/fav.png">
 </head>
 <body>
-  <a href="index.html">
-    <h1>Solomon</h1>
-  </a>  
-  <h3 class="sub"></h3>
-  <section id="home" class="home">
-    <div class="wrapper">
-      <form action="" class="makeFight" id="makeFight">
-      <div class="sectionTitle">
-        <h2>Create a Dispute</h2>
-      </div> 
-        <div>
-          <img id="makeInfo" class="info" src="i/info.svg" alt="info">
-          <input id="createFightInput" type="text" name="make" required>
-          <label for="make">Enter Dispute Name</label>
-        </div>
-        <button type="submit">Get Separated!</button>
-      </form>
-      <a href="#" class="showFindField">Been here before? Find an existing dispute →</a>
-      <form action="" class="findFight" id="findFight">
-        <h2>Find a Dispute</h2>
-        <div>
-          <img id="findInfo" class="info" src="i/info.svg" alt="info">
-          <input id="findFightInput" type="text" name="find" required>
-          <label for="find">Enter Dispute Name</label>
-        </div>
-        <button type="submit">Find</button>
-      </form>
-      <a href="#" class="showMakeField">New to Solomon? Create a new dispute →</a>
-    </div>
-  </section>
-
-  <section class="create">
-    <div class="wrapper">
-      <h2>Create List</h2>
-      <form id="createList">
-        <div>
-          <img id="createInfo" class="info" src="i/info.svg" alt="info">
-          <input type="text" name="item">
-          <label for="itemName">Add Item</label>
-          <button type="default" id="addItem" class="plus">+</button>
-        </div>
-        <button type="submit" id="finalizeList">Finalize List</button>
-      </form>
-      <ul>
-      </ul>
-    </div>
-  </section>
-
-  <section class="order">
-    <div class="wrapper">
-      <h2>Reorder Items</h2>
-      <form action="" id="reOrderList">
-      <div>
-        <img id="reorderInfo" class="info" src="i/info.svg" alt="info">
-        <input type="text" name="name" required>
-        <label for="name">Your Name</label>
+  <header>
+    <a href="index.html">
+      <h1>Solomon</h1>
+    </a>  
+    <h3 class="sub"></h3>
+  </header>
+  <div class="bigboy">
+    <section id="home" class="home">
+      <div class="wrapper">
+        <form action="" class="makeFight" id="makeFight">
+        <div class="sectionTitle">
+          <h2>Create a Dispute</h2>
+        </div> 
+          <div>
+            <img id="makeInfo" class="info" src="i/info.svg" alt="info">
+            <input id="createFightInput" type="text" name="make" required>
+            <label for="make">Enter Dispute Name</label>
+          </div>
+          <button type="submit">Get Separated!</button>
+        </form>
+        <a href="#" class="showFindField">Been here before? Find an existing dispute →</a>
+        <form action="" class="findFight" id="findFight">
+          <h2>Find a Dispute</h2>
+          <div>
+            <img id="findInfo" class="info" src="i/info.svg" alt="info">
+            <input id="findFightInput" type="text" name="find" required>
+            <label for="find">Enter Dispute Name</label>
+          </div>
+          <button type="submit">Find</button>
+        </form>
+        <a href="#" class="showMakeField">New to Solomon? Create a new dispute →</a>
       </div>
-        <ul id="sortable" class="list">
+    </section>
+
+    <section class="create">
+      <div class="wrapper">
+        <h2>Create List</h2>
+        <form id="createList">
+          <div>
+            <img id="createInfo" class="info" src="i/info.svg" alt="info">
+            <input type="text" name="item">
+            <label for="itemName">Add Item</label>
+            <button type="default" id="addItem" class="plus">+</button>
+          </div>
+          <button type="submit" id="finalizeList">Finalize List</button>
+        </form>
+        <ul>
         </ul>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="results">
-    <div class="wrapper">
-      <h2>Results</h2>
-      <div class="half left">
-        <h3 class="resultsName" id="name1"></h3>
-        <ul></ul>
       </div>
+    </section>
 
-      <div class="half right">
-        <h3 class="resultsName" id="name2"></h3>
-        <ul></ul>
+    <section class="order">
+      <div class="wrapper">
+        <h2>Reorder Items</h2>
+        <form action="" id="reOrderList">
+        <div>
+          <img id="reorderInfo" class="info" src="i/info.svg" alt="info">
+          <input type="text" name="name" required>
+          <label for="name">Your Name</label>
+        </div>
+          <ul id="sortable" class="list">
+          </ul>
+          <button type="submit">Submit</button>
+        </form>
       </div>
+    </section>
 
-      <div class="contested" id="contested">
-        <h3>Contested Items</h3>
-        <ul></ul>
+    <section class="results">
+      <div class="wrapper">
+        <h2>Results</h2>
+        <div class="half left">
+          <h3 class="resultsName" id="name1"></h3>
+          <ul></ul>
+        </div>
+
+        <div class="half right">
+          <h3 class="resultsName" id="name2"></h3>
+          <ul></ul>
+        </div>
+
+        <div class="contested" id="contested">
+          <h3>Contested Items</h3>
+          <ul></ul>
+        </div>
+      </div> 
+    </section>
+
+    <section class="alert">
+      <div class="wrapper">
+        <h2>Get your ex to sort their list.</h2>  
+        <a href="index.html" class="ani">
+         <img src="i/heartbreakleft.png" class="left pulseLeft">
+         <img src="i/heartbreakright.png" class="right pulseRight">
+        </a>
       </div>
-    </div> 
-  </section>
+    </section>
+    
+    <div class="overlay overlay1 close">
+      <div class="modal modal1">
+        <img src="i/x.svg" class="close" alt="">
+        <h2>Oops!</h2>
+        <p>Looks like that dispute name doesn't exist yet. Care to make a new one?</p>
+      </div>
+    </div>
+    
+    <div class="overlay overlay2 close">
+      <div class="modal modal2">
+        <img src="i/x.svg" class="close" alt="">
+        <h2>Sorry!</h2>
+        <p>That dispute name is already taken. Try something more creative.</p>
+      </div>
+    </div>
 
-  <section class="alert">
-    <div class="wrapper">
-      <h2>Get your ex to sort their list.</h2>  
-      <a href="index.html" class="ani">
-       <img src="i/heartbreakleft.png" class="left pulseLeft">
-       <img src="i/heartbreakright.png" class="right pulseRight">
-      </a>
+    <div class="overlay overlay3 close">
+      <div class="modal modal3">
+        <img src="i/x.svg" alt="close" class="close">
+        <h2>Creating a Dispute</h2>
+        <p>To create a new dispute, type in a unique name for your dispute and hit <span>Get Separated</span>. Try to make it short, pithy, and memorable. It has to be unique, so if we already have a dispute of that name stored, you will be mocked for your lack of creativity and prompted to create a new name.</p>
+        <p><span>TIP:</span> Remember the name of your dispute! You'll need to send it to the other party.</p>
+      </div>
     </div>
-  </section>
-  
-  <div class="overlay overlay1 close">
-    <div class="modal modal1">
-      <img src="i/x.svg" class="close" alt="">
-      <h2>Oops!</h2>
-      <p>Looks like that dispute name doesn't exist yet. Care to make a new one?</p>
-    </div>
-  </div>
-  
-  <div class="overlay overlay2 close">
-    <div class="modal modal2">
-      <img src="i/x.svg" class="close" alt="">
-      <h2>Sorry!</h2>
-      <p>That dispute name is already taken. Try something more creative.</p>
-    </div>
-  </div>
 
-  <div class="overlay overlay3 close">
-    <div class="modal modal3">
-      <img src="i/x.svg" alt="close" class="close">
-      <h2>Creating a Dispute</h2>
-      <p>To create a new dispute, type in a unique name for your dispute and hit <span>Get Separated</span>. Try to make it short, pithy, and memorable. It has to be unique, so if we already have a dispute of that name stored, you will be mocked for your lack of creativity and prompted to create a new name.</p>
-      <p><span>TIP:</span> Remember the name of your dispute! You'll need to send it to the other party.</p>
+    <div class="overlay overlay4 close">
+      <div class="modal modal4">
+        <img src="i/x.svg" alt="close" class="close">
+        <h2>Finding an Existing Dispute</h2>
+        <p>To find an existing dispute, enter the name of the dispute exactly, and click <span>Find</span>. If we can’t find a dispute with that name, you will be cordially invited to correct your error or create a new dispute.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="overlay overlay4 close">
-    <div class="modal modal4">
-      <img src="i/x.svg" alt="close" class="close">
-      <h2>Finding an Existing Dispute</h2>
-      <p>To find an existing dispute, enter the name of the dispute exactly, and click <span>Find</span>. If we can’t find a dispute with that name, you will be cordially invited to correct your error or create a new dispute.</p>
+    <div class="overlay overlay5 close">
+      <div class="modal modal5">
+        <img src="i/x.svg" alt="close" class="close">
+        <h2>Creating a List</h2>
+        <p>This is the list of items that are being disputed. Before creating a list, make sure that both parties are in mutual agreement on the items being disputed. This list can only be made once, and can't be edited once you click <span>Finalize</span>.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="overlay overlay5 close">
-    <div class="modal modal5">
-      <img src="i/x.svg" alt="close" class="close">
-      <h2>Creating a List</h2>
-      <p>This is the list of items that are being disputed. Before creating a list, make sure that both parties are in mutual agreement on the items being disputed. This list can only be made once, and can't be edited once you click <span>Finalize</span>.</p>
+    <div class="overlay overlay6 close">
+      <div class="modal modal6">
+        <img src="i/x.svg" alt="close" class="close">
+        <h2>Reordering Items</h2>
+        <p>Once the list of items is created, both parties need to rank the items. First, enter your name in the name field, so we know whose ranking this is.</p>
+
+        <p>Then, click on the items and drag them around. Stuff you want the most goes on top; stuff you don’t care about so much goes on the bottom. Once you’ve ranked everything, click <span>Separate us</span>. You’ll be shown a sad animation of a breaking heart.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="overlay overlay6 close">
-    <div class="modal modal6">
-      <img src="i/x.svg" alt="close" class="close">
-      <h2>Reordering Items</h2>
-      <p>Once the list of items is created, both parties need to rank the items. First, enter your name in the name field, so we know whose ranking this is.</p>
-
-      <p>Then, click on the items and drag them around. Stuff you want the most goes on top; stuff you don’t care about so much goes on the bottom. Once you’ve ranked everything, click <span>Separate us</span>. You’ll be shown a sad animation of a breaking heart.</p>
+    <!-- default intro modal -->
+    <div class="overlay overlay7 close">
+      <div class="modal modal7">
+        <img src="i/x.svg" alt="close" class="close">
+        <h2></h2>
+        <p></p>
+      </div>
     </div>
-  </div>
 
-  <!-- default intro modal -->
-  <div class="overlay overlay7 close">
-    <div class="modal modal7">
-      <img src="i/x.svg" alt="close" class="close">
-      <h2></h2>
-      <p></p>
-    </div>
-  </div>
+  </div>  
 
   <footer>
     <div class="wrapper">
